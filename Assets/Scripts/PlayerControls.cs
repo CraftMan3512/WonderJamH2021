@@ -22,6 +22,13 @@ public class PlayerControls : MonoBehaviour
         MovePlayer();
     }
 
+    public void LockMovement()
+    {
+        
+        
+        
+    }
+
     void MovePlayer()
     {
         
