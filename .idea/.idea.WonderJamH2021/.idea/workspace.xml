@@ -13,6 +13,13 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://D:/Wonder Jams/InputSystem_V2/Assets/Scripts/PlayerJoinTester.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerJoinTester.cs" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1p1ptCgWmxszdJtsg0ebGHkcFWk" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -52,6 +59,7 @@
       <option name="presentableId" value="Default" />
       <updated>1614360666097</updated>
       <workItem from="1614360672059" duration="616000" />
+      <workItem from="1614361534527" duration="311000" />
     </task>
     <servers />
   </component>
