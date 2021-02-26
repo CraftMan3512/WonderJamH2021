@@ -7,9 +7,7 @@ public enum SceneTypes
 {
     
     MainMenu = 0,
-    Options = 1,
-    PlayerJoin = 2,
-    GameplayScene = 3,
+    GameplayScene = 1,
     
 }
 
