@@ -27,7 +27,7 @@ public class PlayerJoinTester : MonoBehaviour
         else
         {
             
-            Debug.Log("DELETE");
+            //Debug.Log("DELETE");
             gameObject.SetActive(false);
 
         }
