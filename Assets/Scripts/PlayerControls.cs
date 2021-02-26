@@ -17,21 +17,6 @@ public class PlayerControls : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
     }
-
-    private void Update()
-    {
-
-        CheckStairMode();
-
-    }
-
-    void CheckStairMode()
-    {
-
-        
-
-    }
-
     private void FixedUpdate()
     {
         MovePlayer();
@@ -61,11 +46,11 @@ public class PlayerControls : MonoBehaviour
 
         if (Input.GetAxisRaw("Horizontal") == 0) rb.gravityScale = 0;
         else rb.gravityScale = 1;
-        rb.MovePosition(rb.transform.position + (Input.GetAxisRaw("Horizontal")*surfaceDir*speed*Time.deltaTime));
+        rb.MovePosition(rb.transform.position + (surfaceDir * (Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime)));
 
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmos() //to remove later
     {
         
         List<RaycastHit2D> hit = new List<RaycastHit2D>();
