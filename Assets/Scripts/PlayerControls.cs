@@ -9,8 +9,6 @@ public class PlayerControls : MonoBehaviour
     public bool lockMovement;
     public float speed;
     private Rigidbody2D rb;
-
-    public bool isStairMode = false;
     
     // Start is called before the first frame update
     void Start()
@@ -30,7 +28,7 @@ public class PlayerControls : MonoBehaviour
     void CheckStairMode()
     {
 
-        isStairMode = Input.GetKey(KeyCode.W);
+        
 
     }
 
@@ -60,8 +58,9 @@ public class PlayerControls : MonoBehaviour
             }
             
         }
-        
-        
+
+        if (Input.GetAxisRaw("Horizontal") == 0) rb.gravityScale = 0;
+        else rb.gravityScale = 1;
         rb.MovePosition(rb.transform.position + (Input.GetAxisRaw("Horizontal")*surfaceDir*speed*Time.deltaTime));
 
     }
@@ -70,7 +69,7 @@ public class PlayerControls : MonoBehaviour
     {
         
         List<RaycastHit2D> hit = new List<RaycastHit2D>();
-        int nb = Physics2D.Raycast(transform.position + new Vector3(0,0.2f), Vector3.down, new ContactFilter2D(),hit);
+        int nb = Physics2D.Raycast(transform.position + new Vector3(0,0.2f), Vector3.down, new ContactFilter2D(),hit, 1);
 
         Vector3 surfaceDir = new Vector3(1,0);
         

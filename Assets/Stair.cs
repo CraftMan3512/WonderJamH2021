@@ -12,8 +12,7 @@ public class Stair : MonoBehaviour
     {
 
         GetComponent<PolygonCollider2D>().enabled = ActiveCollision;
-
-
+        
     }
 
 
@@ -30,21 +29,11 @@ public class Stair : MonoBehaviour
         
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    public void StartStair()
     {
-
-        if (other.gameObject.tag.Equals("Player"))
-        {
-
-            if (other.gameObject.GetComponent<PlayerControls>().isStairMode)
-            {
-
-                ActiveCollision = true;
-                topFloor.enabled = false;
-
-            }
-            
-        }
+        
+        ActiveCollision = true;
+        topFloor.enabled = false;
         
     }
 }
