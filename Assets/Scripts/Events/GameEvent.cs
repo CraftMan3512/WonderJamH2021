@@ -1,18 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class OnStartEvent : UnityEvent<GameObject>
+{
+}
 
 public class GameEvent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public OnStartEvent onStartEvent;
 
-    // Update is called once per frame
-    void Update()
+    public void StartEvent(GameObject player)
     {
         
+        onStartEvent.Invoke(player);
+        
     }
+    
+
 }
