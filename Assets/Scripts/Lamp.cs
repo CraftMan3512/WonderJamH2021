@@ -16,13 +16,15 @@ public class Lamp : MonoBehaviour
  
     public void TurnOff (){
 
-        
+        light.SetActive(false);
+        collider.enabled = false;
 
     }
 
     public void TurnOn()
     {
-
+        light.SetActive(true);
+        collider.enabled = true;
     }
 
     
