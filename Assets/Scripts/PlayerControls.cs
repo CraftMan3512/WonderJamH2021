@@ -134,6 +134,8 @@ public class PlayerControls : MonoBehaviour
         //update movement anim value
         GetComponent<Animator>().SetBool("IsMoving", Input.GetAxisRaw("Horizontal") != 0 && !lockMovement);
         
+        rb.velocity = Vector2.zero; // fix 
+
         if (!lockMovement)
         {
             
@@ -165,10 +167,18 @@ public class PlayerControls : MonoBehaviour
                 droit = true;
                 transform.localScale = new Vector3(baseScale.x,baseScale.y,baseScale.z);
             }
+            
             if (Input.GetAxisRaw("Horizontal") == 0) rb.gravityScale = 0;
             else rb.gravityScale = 1;
+            
             rb.MovePosition(rb.transform.position + (surfaceDir * (Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime)));    
             
+        }
+        else
+        {
+
+            rb.gravityScale = 0;
+
         }
         
     }
