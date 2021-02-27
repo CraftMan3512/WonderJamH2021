@@ -7,8 +7,8 @@ public class CircleSpawner : MonoBehaviour
     private float timeBetweenCircles = 0.5f;
     private float timeLeft;
     private float numberOfCircles = 5;
-    private float halfMaxHeight = 4;
-    private float halfMaxWidth = 3;
+    private float halfMaxHeight = 1.6f;
+    private float halfMaxWidth = 1.2f;
     SpriteRenderer[] sr = new SpriteRenderer[2];
 
     // Update is called once per frame
