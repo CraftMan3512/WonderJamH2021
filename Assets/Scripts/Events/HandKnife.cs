@@ -81,6 +81,8 @@ public class HandKnife : MonoBehaviour
             {
                 //Blood shit and fade;
                 GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(4);
+                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found some human fingers!", 2f);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
                 Destroy(transform.parent.gameObject);
             }
         }

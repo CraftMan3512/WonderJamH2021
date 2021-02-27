@@ -51,6 +51,7 @@ public class ChicklenEvent : MonoBehaviour
         Debug.Log("EVENT DONE!!!");
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
         GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(1);
+        GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found a chicken's heart!", 2f);
         Destroy(gameObject);
         
     }
