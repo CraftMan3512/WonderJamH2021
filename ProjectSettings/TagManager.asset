@@ -48,6 +48,9 @@ TagManager:
   - name: Level
     uniqueID: 1140088827
     locked: 0
+  - name: Interactables
+    uniqueID: 1409162621
+    locked: 0
   - name: Player
     uniqueID: 1181934489
     locked: 0

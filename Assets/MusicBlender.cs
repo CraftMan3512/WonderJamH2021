@@ -29,13 +29,13 @@ public class MusicBlender : MonoBehaviour
     IEnumerator TestCor()
     {
         
-        Debug.Log("TEST START");
+        //Debug.Log("TEST START");
         yield return new WaitForSeconds(5f);
         HastenMusic();
         yield return new WaitForSeconds(10f);
         RelaxMusic();
         yield return new WaitForSeconds(5f);
-        Debug.Log("TEST END");
+        //Debug.Log("TEST END");
         
     }
 
