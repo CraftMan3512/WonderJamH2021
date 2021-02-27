@@ -31,23 +31,12 @@ public class PlayerControls : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         baseScale = transform.localScale;
         LampeDePocheLight2d.enabled = false;
-        energy.value = 100;
+        energy.value = 35;
     }
     private void FixedUpdate()
     {
         MovePlayer();
-
-        if (GameManager.LampeDePoche)
-        {
-            energy.value -= energyDownRate * Time.deltaTime;
-            if (energy.value <= 0)
-            {
-                ToggleLampeDePoche();
-            }else if (energy.value<energyThreshHoldFlash)
-            {
-                Flash(true);
-            }
-        }
+        
     }
 
     private void ToggleLampeDePoche()
@@ -104,7 +93,21 @@ public class PlayerControls : MonoBehaviour
     }
     private void Update()
     {
+        
         Interactions();
+        
+        if (GameManager.LampeDePoche)
+        {
+            energy.value -= energyDownRate * Time.deltaTime;
+            if (energy.value <= 0)
+            {
+                ToggleLampeDePoche();
+            }else if (energy.value<energyThreshHoldFlash)
+            {
+                Flash(true);
+            }
+        }
+        
     }
 
     public void LockMovement()
@@ -134,6 +137,8 @@ public class PlayerControls : MonoBehaviour
         //update movement anim value
         GetComponent<Animator>().SetBool("IsMoving", Input.GetAxisRaw("Horizontal") != 0 && !lockMovement);
         
+        rb.velocity = Vector2.zero; // fix 
+
         if (!lockMovement)
         {
             
@@ -165,17 +170,25 @@ public class PlayerControls : MonoBehaviour
                 droit = true;
                 transform.localScale = new Vector3(baseScale.x,baseScale.y,baseScale.z);
             }
+            
             if (Input.GetAxisRaw("Horizontal") == 0) rb.gravityScale = 0;
             else rb.gravityScale = 1;
+            
             rb.MovePosition(rb.transform.position + (surfaceDir * (Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime)));    
             
+        }
+        else
+        {
+
+            rb.gravityScale = 0;
+
         }
         
     }
 
     private void Interactions()
     {
-        if (Input.GetKeyDown(KeyCode.F)&&!Flash(false))
+        if (!lockMovement && Input.GetKeyDown(KeyCode.F)&&!Flash(false))
         {
             ToggleLampeDePoche();
         }
@@ -186,6 +199,7 @@ public class PlayerControls : MonoBehaviour
             ToggleOffLampeDePoche();
             GameManager.LampeDePoche = false;
             LockMovement();
+            StopAllCoroutines();
             StartCoroutine(CrankFlashlight());
 
         }
@@ -196,7 +210,7 @@ public class PlayerControls : MonoBehaviour
 
         //play crank sound here
         
-        while (energy.value < 100)
+        while (Input.GetKey(KeyCode.E) && energy.value < 100)
         {
 
             energy.value += (100f / crankTime) * Time.deltaTime;
