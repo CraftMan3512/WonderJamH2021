@@ -40,6 +40,7 @@ public class CircleSpawner : MonoBehaviour
                 }
                 else
                 {
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
                     Destroy(transform.parent.gameObject);
                 }
             }
