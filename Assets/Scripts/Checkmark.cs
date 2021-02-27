@@ -26,7 +26,7 @@ public class Checkmark : MonoBehaviour
     }
 
 
-    void CompletedTask(int index)
+    public void CompletedTask(int index)
     {
 
         for (int i = 0; i < boutons.Length; i++)

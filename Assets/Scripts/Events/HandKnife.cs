@@ -79,6 +79,8 @@ public class HandKnife : MonoBehaviour
             else
             {
                 //Blood shit and fade;
+                GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(4);
+                Destroy(transform.parent.gameObject);
             }
         }
 
