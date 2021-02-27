@@ -36,6 +36,22 @@ public class PlayerControls : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+
+        if (GameManager.LampeDePoche)
+        {
+            energy.value -= energyDownRate * Time.deltaTime;
+            if (energy.value <= 0)
+            {
+                ToggleLampeDePoche();
+            }else if (energy.value<energyThreshHoldFlash)
+            {
+                if (energy.value <= 0)
+                {
+                    timeLeftFlash = 0;
+                }
+                Flash(true);
+            }
+        }
         
     }
 
