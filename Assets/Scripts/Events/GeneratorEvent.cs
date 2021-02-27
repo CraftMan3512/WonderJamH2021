@@ -8,7 +8,6 @@ public class GeneratorEvent : MonoBehaviour
 
     public GameObject bar;
     public Transform barTop, barBottom;
-    private GameObject ply;
 
     private bool started = false;
 
@@ -16,13 +15,12 @@ public class GeneratorEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartEvent(ply);
+        StartEvent();
     }
 
-    public void StartEvent(GameObject _ply)
+    public void StartEvent()
     {
         
-        ply = _ply;
         started = true;
 
     }
@@ -34,7 +32,7 @@ public class GeneratorEvent : MonoBehaviour
         if (barTaken && started)
         {
             
-            bar.transform.position = new Vector3(bar.transform.localPosition.x, Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).y, barBottom.localPosition.y, barTop.localPosition.y));
+            bar.transform.position = new Vector3(bar.transform.position.x, Mathf.Clamp(Camera.main.ScreenToWorldPoint(Input.mousePosition).y, barBottom.position.y, barTop.position.y));
             
         }
         
@@ -51,7 +49,7 @@ public class GeneratorEvent : MonoBehaviour
     {
 
         barTaken = false;
-        if (Math.Abs(bar.transform.localPosition.y - barTop.localPosition.y) < 0.05f)
+        if (Math.Abs(bar.transform.position.y - barTop.position.y) < 0.05f)
         {
             
             EndEvent();
@@ -64,7 +62,7 @@ public class GeneratorEvent : MonoBehaviour
     {
         
         Debug.Log("EVENT GENERATOR DONE!!!");
-        //ply.GetComponent<PlayerControls>().UnlockMovement();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
         
         Destroy(gameObject);
         

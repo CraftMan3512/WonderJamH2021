@@ -41,6 +41,8 @@ public class Syringe : MonoBehaviour
                 else
                 {
                     //fin
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+                    Destroy(gameObject);
                 }
             }
             else
