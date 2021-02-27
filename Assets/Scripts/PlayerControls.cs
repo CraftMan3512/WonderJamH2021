@@ -23,6 +23,7 @@ public class PlayerControls : MonoBehaviour
     public float timeFlash=0;
     public float crankTime = 4f;
     public AudioClip stepSound;
+    public float timeBeforeCrank=1f;
 
     // Start is called before the first frame update
     void Start()
@@ -211,13 +212,12 @@ public class PlayerControls : MonoBehaviour
             LockMovement();
             StopAllCoroutines();
             StartCoroutine(CrankFlashlight());
-
         }
     }
 
     IEnumerator CrankFlashlight()
     {
-
+        yield return new WaitForSeconds(timeBeforeCrank);
         //play crank sound here
         
         while (Input.GetKey(KeyCode.E) && energy.value < 100)
