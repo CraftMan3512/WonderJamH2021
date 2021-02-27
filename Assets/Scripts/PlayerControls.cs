@@ -254,6 +254,8 @@ public class PlayerControls : MonoBehaviour
 
     IEnumerator CrankFlashlight()
     {
+        GetComponent<AudioSource>().Play();
+        
         yield return new WaitForSeconds(timeBeforeCrank);
         //play crank sound here
         
@@ -264,6 +266,8 @@ public class PlayerControls : MonoBehaviour
             yield return null;
 
         }
+        
+        GetComponent<AudioSource>().Stop();
         
         //play crank sound end here? or maibe open flashlight
         UnlockMovement();
