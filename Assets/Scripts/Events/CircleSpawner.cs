@@ -7,8 +7,8 @@ public class CircleSpawner : MonoBehaviour
     private float timeBetweenCircles = 0.5f;
     private float timeLeft;
     private float numberOfCircles = 5;
-    private float halfMaxHeight = 1.6f;
-    private float halfMaxWidth = 1.2f;
+    private float halfMaxHeight = 1.5f;
+    private float halfMaxWidth = 1f;
     SpriteRenderer[] sr = new SpriteRenderer[2];
 
     // Update is called once per frame
@@ -36,10 +36,7 @@ public class CircleSpawner : MonoBehaviour
                 {
                     sr[0].color -= new Color(0, 0, 0, Time.deltaTime);
                     sr[1].color -= new Color(0, 0, 0, Time.deltaTime);
-                    for(int i = 0; i < transform.childCount; i++)
-                    {
-                        transform.GetChild(i).GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, Time.deltaTime);
-                    }
+                   
                 }
                 else
                 {
