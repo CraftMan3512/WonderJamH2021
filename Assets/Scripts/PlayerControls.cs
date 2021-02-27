@@ -13,7 +13,7 @@ public class PlayerControls : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     private Vector3 baseScale;
-    private bool droit =true;
+    public bool droit =true;
     public GameObject lampePoche;
     private Light2D LampeDePocheLight2d;
     public Slider energy;
