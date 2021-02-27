@@ -18,12 +18,11 @@ public class Sanity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (isInLight||GameManager.LampeDePoche)
+        if (isInLight)
         {
             GameManager.AddSanity(Time.deltaTime * sanityAddMulti);
         }
-        else
+        else if (!GameManager.LampeDePoche)
         {
             GameManager.RemoveSanity(Time.deltaTime * sanityMinusMulti);
         }

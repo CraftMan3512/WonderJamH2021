@@ -23,6 +23,10 @@ public class PlayerControls : MonoBehaviour
     public float timeFlash=0;
     public float crankTime = 4f;
     public AudioClip stepSound;
+    public float timeBeforeCrank=1f;
+    public GameObject PrefabFlashLightMonster;
+    private GameObject CurrFlashLightMonster;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +51,7 @@ public class PlayerControls : MonoBehaviour
     private void ToggleLampeDePoche()
     {
         timeLeftFlash = 0;
+        CurrFlashLightMonster.SetActive(false);
         if (GameManager.LampeDePoche) 
         {
             lampePoche.GetComponent<Light2D>().enabled = false;
@@ -62,11 +67,15 @@ public class PlayerControls : MonoBehaviour
     private void ToggleOffLampeDePoche()
     {
         lampePoche.GetComponent<Light2D>().enabled = false;
+        if(Random.Range(0,3)==0)
+            CurrFlashLightMonster.SetActive(false);
     }
 
-    private void ToggleOnLampeDePoche()
+    private void ToggleOnLampeDePocheVis()
     {
         lampePoche.GetComponent<Light2D>().enabled = true;
+        if(Random.Range(0,5)==0)
+            CurrFlashLightMonster.SetActive(true);
     }
 
     private bool Flash(bool reset)
@@ -74,10 +83,10 @@ public class PlayerControls : MonoBehaviour
         if (reset)
         {
             float temp=(100 - energy.value) / 100;
-            float often=10f;
+            float often=18f;
             if (timeLeftFlash <= 0&&Random.Range(0,(int)(often-(temp*often/2)))==0)
             {
-                timeLeftFlash = 0.10f;
+                timeLeftFlash =timeFlash;
                 ToggleOffLampeDePoche();
             }
             else if (timeLeftFlash > 0)
@@ -85,7 +94,7 @@ public class PlayerControls : MonoBehaviour
                 timeLeftFlash -= Time.deltaTime * temp;
                 if (timeLeftFlash <= 0)
                 {
-                    ToggleOnLampeDePoche();
+                    ToggleOnLampeDePocheVis();
                     timeLeftFlash = 0;
                 }
 
@@ -205,19 +214,18 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             
-            ToggleOffLampeDePoche();
+            lampePoche.GetComponent<Light2D>().enabled = false;
             GameManager.LampeDePoche = false;
             
             LockMovement();
             StopAllCoroutines();
             StartCoroutine(CrankFlashlight());
-
         }
     }
 
     IEnumerator CrankFlashlight()
     {
-
+        yield return new WaitForSeconds(timeBeforeCrank);
         //play crank sound here
         
         while (Input.GetKey(KeyCode.E) && energy.value < 100)
