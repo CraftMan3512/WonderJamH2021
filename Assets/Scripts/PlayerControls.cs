@@ -72,6 +72,9 @@ public class PlayerControls : MonoBehaviour
                 }
             
             }
+            
+            //update movement anim value
+            GetComponent<Animator>().SetBool("IsMoving", Input.GetAxisRaw("Horizontal") != 0);
 
             if (Input.GetAxisRaw("Horizontal") < 0&&droit)
             {
