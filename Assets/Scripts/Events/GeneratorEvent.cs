@@ -61,7 +61,7 @@ public class GeneratorEvent : MonoBehaviour
     public void EndEvent()
     {
         
-        Debug.Log("EVENT GENERATOR DONE!!!");
+        //Debug.Log("EVENT GENERATOR DONE!!!");
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
         
         Destroy(gameObject);
