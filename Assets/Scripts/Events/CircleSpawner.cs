@@ -10,6 +10,7 @@ public class CircleSpawner : MonoBehaviour
     private float halfMaxHeight = 1.5f;
     private float halfMaxWidth = 1f;
     SpriteRenderer[] sr = new SpriteRenderer[2];
+    private float difficulty;
 
     // Update is called once per frame
     private void Start()
@@ -17,7 +18,7 @@ public class CircleSpawner : MonoBehaviour
         timeLeft = timeBetweenCircles;
         sr[0] = transform.parent.GetChild(0).GetComponent<SpriteRenderer>();
         sr[1] = transform.parent.GetChild(1).GetComponent<SpriteRenderer>();
-
+        
     }
     void Update()
     {
