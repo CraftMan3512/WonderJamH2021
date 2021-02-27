@@ -23,6 +23,7 @@ public class PlayerControls : MonoBehaviour
     public float timeFlash=0;
     public float crankTime = 4f;
     public AudioClip stepSound;
+    public AudioClip flashlightSFX;
     public float timeBeforeCrank=1f;
     public GameObject PrefabFlashLightMonster;
     private GameObject CurrFlashLightMonster;
@@ -50,6 +51,7 @@ public class PlayerControls : MonoBehaviour
    
     private void ToggleLampeDePoche()
     {
+        SoundPlayer.PlaySFX(flashlightSFX, 0.5f);
         timeLeftFlash = 0;
         if (GameManager.LampeDePoche) 
         {

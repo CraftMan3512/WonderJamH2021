@@ -364,7 +364,8 @@ MonoBehaviour:
   energyThreshHoldFlash: 10
   timeFlash: 0.15
   crankTime: 8
-  stepSound: {fileID: 8300000, guid: 9f13fedeb2f34aa4f81cb68d89b2f018, type: 3}
+  stepSound: {fileID: 8300000, guid: f9d56e89493164b4495111a7deadbf1b, type: 3}
+  flashlightSFX: {fileID: 8300000, guid: 928227501299c074cac8ab964df1cc26, type: 3}
   timeBeforeCrank: 1
   PrefabFlashLightMonster: {fileID: 6387443950374137629, guid: 44519d34d8f095f4fb38e2c82bd9388f,
     type: 3}
