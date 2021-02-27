@@ -17,6 +17,7 @@ public class HandKnife : MonoBehaviour
     private GameObject line;
     private Vector2 fingerEventPos;
     private bool clicked = false;
+
     // Start is called before the first frame update
     void Start()
     {
