@@ -5,17 +5,16 @@ using UnityEngine;
 
 public class ChicklenEvent : MonoBehaviour
 {
-    public GameObject chicken1, chicken2, pointille, couteau, ply;
+    public GameObject chicken1, chicken2, pointille, couteau;
 
     private void Start()
     {
-        StartEvent(ply);
+        StartEvent();
     }
 
-    public void StartEvent(GameObject _ply)
+    public void StartEvent()
     {
-
-        ply = _ply;
+        
         chicken1.SetActive(true);
         pointille.SetActive(false);
         couteau.SetActive(true);
@@ -50,7 +49,7 @@ public class ChicklenEvent : MonoBehaviour
     {
         
         Debug.Log("EVENT DONE!!!");
-        ply.GetComponent<PlayerControls>().UnlockMovement();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
         Destroy(gameObject);
         
     }

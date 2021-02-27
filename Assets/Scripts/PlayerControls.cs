@@ -99,6 +99,7 @@ public class PlayerControls : MonoBehaviour
     }
     private void Update()
     {
+        
         Interactions();
         
         if (GameManager.LampeDePoche)
