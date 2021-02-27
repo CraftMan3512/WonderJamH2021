@@ -7,6 +7,7 @@ TagManager:
   - Stair
   - Light
   - CheckMark
+  - Monstre
   layers:
   - Default
   - TransparentFX

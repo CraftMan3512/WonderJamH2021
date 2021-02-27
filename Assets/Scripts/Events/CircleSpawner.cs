@@ -7,8 +7,8 @@ public class CircleSpawner : MonoBehaviour
     private float timeBetweenCircles = 0.5f;
     private float timeLeft;
     private float numberOfCircles = 5;
-    private float halfMaxHeight = 1.5f;
-    private float halfMaxWidth = 1f;
+    private float halfMaxHeight = 1f;
+    private float halfMaxWidth = 0.7f;
     SpriteRenderer[] sr = new SpriteRenderer[2];
     private float difficulty;
 
@@ -55,7 +55,7 @@ public class CircleSpawner : MonoBehaviour
 
     void SpawnCircle()
     {
-        Vector3 position = new Vector3(Random.Range(-halfMaxWidth, halfMaxWidth), Random.Range(-halfMaxHeight, halfMaxHeight));
+        Vector3 position = new Vector3(Random.Range(-halfMaxWidth, halfMaxWidth),0.2f+ Random.Range(-halfMaxHeight, halfMaxHeight));
         GameObject circle = Instantiate((GameObject)Resources.Load("Events/Circle"));
         circle.transform.parent = gameObject.transform;
         circle.transform.position = transform.position + position;
