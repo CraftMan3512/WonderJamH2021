@@ -20,6 +20,13 @@ public class HandRotation : MonoBehaviour
     void Update()
     {
 
+        if (!transform.parent.GetComponent<PlayerControls>().lockMovement) RotateHand();
+
+    }
+
+    void RotateHand()
+    {
+        
         Vector2 rel;
 
         if (transform.parent.GetComponent<PlayerControls>().droit)
@@ -38,7 +45,6 @@ public class HandRotation : MonoBehaviour
         
         transform.rotation = Quaternion.Euler(0,0,Mathf.Clamp(angle, MinAngle, MaxAngle));
         
-
     }
 
     private void OnDrawGizmos()

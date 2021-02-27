@@ -122,6 +122,9 @@ public class PlayerControls : MonoBehaviour
     void MovePlayer()
     {
 
+        //update movement anim value
+        GetComponent<Animator>().SetBool("IsMoving", Input.GetAxisRaw("Horizontal") != 0 && !lockMovement);
+        
         if (!lockMovement)
         {
             
@@ -143,9 +146,6 @@ public class PlayerControls : MonoBehaviour
                 }
             
             }
-            
-            //update movement anim value
-            GetComponent<Animator>().SetBool("IsMoving", Input.GetAxisRaw("Horizontal") != 0);
 
             if (Input.GetAxisRaw("Horizontal") < 0&&droit)
             {
