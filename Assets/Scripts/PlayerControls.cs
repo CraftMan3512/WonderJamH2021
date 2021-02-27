@@ -186,6 +186,7 @@ public class PlayerControls : MonoBehaviour
             ToggleOffLampeDePoche();
             GameManager.LampeDePoche = false;
             LockMovement();
+            StopAllCoroutines();
             StartCoroutine(CrankFlashlight());
 
         }
