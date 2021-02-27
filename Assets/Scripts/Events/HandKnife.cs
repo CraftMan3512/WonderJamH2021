@@ -31,6 +31,7 @@ public class HandKnife : MonoBehaviour
         }
         fm = GetComponent<FollowMouse>();
         fingerEventPos = transform.parent.position;
+        fingerEventPos += new Vector2(-0.5f, 0.3f);
         shake = new Vector2(0, 0);
         baseHeightOffset = -1;
         SetTarget();
@@ -49,7 +50,7 @@ public class HandKnife : MonoBehaviour
         }
         if(Mathf.Abs(mousePos.y - fingerEventPos.y) > maxHeight)
         {
-            yMouseOffset = -((mousePos.y - fingerEventPos.y) - Mathf.Sign((mousePos.y - fingerEventPos.y)) * maxHeight);
+            yMouseOffset = -((mousePos.y - fingerEventPos.y) - (Mathf.Sign((mousePos.y - fingerEventPos.y)) * maxHeight));
         }
         
         shake = Vector2.MoveTowards(shake, target, shakeSpeed * Time.deltaTime);
