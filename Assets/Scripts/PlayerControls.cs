@@ -21,6 +21,7 @@ public class PlayerControls : MonoBehaviour
     public float energyThreshHoldFlash=20;
     private float timeLeftFlash;
     public float timeFlash=0;
+    public float crankTime = 4f;
     public AudioClip stepSound;
 
     // Start is called before the first frame update
@@ -174,10 +175,39 @@ public class PlayerControls : MonoBehaviour
 
     private void Interactions()
     {
-        if (Input.GetKeyDown("f")&&!Flash(false))
+        if (Input.GetKeyDown(KeyCode.F)&&!Flash(false))
         {
             ToggleLampeDePoche();
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            
+            ToggleOffLampeDePoche();
+            GameManager.LampeDePoche = false;
+            LockMovement();
+            StartCoroutine(CrankFlashlight());
+
+        }
+    }
+
+    IEnumerator CrankFlashlight()
+    {
+
+        //play crank sound here
+        
+        while (energy.value < 100)
+        {
+
+            energy.value += (100f / crankTime) * Time.deltaTime;
+            yield return null;
+
+        }
+        
+        //play crank sound end here? or maibe open flashlight
+        UnlockMovement();
+        Debug.Log("CRANK FLASH END!");
+        
     }
 
     
