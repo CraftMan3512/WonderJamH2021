@@ -44,7 +44,7 @@ public class HandRotation : MonoBehaviour
     private void OnDrawGizmos()
     {
 
-        Gizmos.DrawLine(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        //Gizmos.DrawLine(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
     }
 }
