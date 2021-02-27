@@ -1983,8 +1983,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 649c539a61416c648895c35b7868b463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 2
-  transition: 1
+  nextScene: 1
+  transition: 0
 --- !u!114 &1681623927
 MonoBehaviour:
   m_ObjectHideFlags: 0
