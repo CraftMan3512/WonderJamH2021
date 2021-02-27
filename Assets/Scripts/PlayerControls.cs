@@ -230,7 +230,7 @@ public class PlayerControls : MonoBehaviour
         
         //play crank sound end here? or maibe open flashlight
         UnlockMovement();
-        Debug.Log("CRANK FLASH END!");
+        //Debug.Log("CRANK FLASH END!");
         
     }
 
