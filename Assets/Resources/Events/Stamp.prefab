@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 89908288486374907}
   - component: {fileID: 4218971215338162356}
-  - component: {fileID: -5393200831424653929}
   m_Layer: 0
   m_Name: Stamp
   m_TagString: Untagged
@@ -82,15 +81,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-5393200831424653929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3941818528175628651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2dd20b7d84fba349a772e64df58d7bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
