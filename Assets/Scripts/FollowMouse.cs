@@ -20,7 +20,9 @@ public class FollowMouse : MonoBehaviour
     {
         if (following)
         {
-            gameObject.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(xOffset, yOffset, 0);
+            Vector2 Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(xOffset, yOffset, 0);
+            gameObject.transform.position = Pos;
+
         }
     }
 
