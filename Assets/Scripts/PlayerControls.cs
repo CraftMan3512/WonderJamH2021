@@ -262,7 +262,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (other.transform.CompareTag("Monstre"))
         {
-            Instantiate((GameObject)Resources.Load("Events/DemonFight"),Camera.main.transform.position,Quaternion.identity);
+            Instantiate((GameObject)Resources.Load("Events/DemonFight"),new Vector3(Camera.main.transform.position.x,Camera.main.transform.position.y,0),Quaternion.identity);
             Debug.Log("Jaime les penis");
         }
     }
