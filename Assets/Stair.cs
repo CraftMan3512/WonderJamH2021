@@ -7,6 +7,7 @@ public class Stair : MonoBehaviour
 {
     public bool ActiveCollision = false;
     public Collider2D topFloor;
+    private bool playerCollided = false;
 
     private void Update()
     {
@@ -24,6 +25,24 @@ public class Stair : MonoBehaviour
 
             ActiveCollision = false;
             topFloor.enabled = true;
+            playerCollided = false;
+
+        }
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+
+        if (other.gameObject.tag.Equals("Player"))
+        {
+
+            if (ActiveCollision)
+            {
+                
+                playerCollided = true;   
+                
+            }
 
         }
         
@@ -34,6 +53,20 @@ public class Stair : MonoBehaviour
         
         ActiveCollision = true;
         topFloor.enabled = false;
+        
+    }
+
+    public void CheckEndStairs()
+    {
+
+        if (ActiveCollision && !playerCollided)
+        {
+            
+            ActiveCollision = false;
+            topFloor.enabled = true;
+            playerCollided = false;
+            
+        }
         
     }
 }

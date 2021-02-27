@@ -6,10 +6,22 @@ public class TestEvent : MonoBehaviour
 {
 
 
-    public void PlayEvent()
+    public void PlayEvent(GameObject ply)
+    {
+
+        Debug.Log("START EVENT");
+        StartCoroutine(EventCoroutine(ply));
+
+    }
+
+    public IEnumerator EventCoroutine(GameObject ply)
     {
         
+        yield return new WaitForSeconds(1f);
         
+        Debug.Log("END EVENT");
+        
+        ply.GetComponent<PlayerControls>().UnlockMovement();
         
     }
     

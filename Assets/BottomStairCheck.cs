@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +18,18 @@ public class BottomStairCheck : MonoBehaviour
 
             }
             
+        }
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        
+        if (other.gameObject.tag.Equals("Player"))
+        {
+            
+            transform.parent.GetComponent<Stair>().CheckEndStairs();
+
         }
         
     }
