@@ -15,6 +15,6 @@ public class AfficherSanity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        txt.text = GameManager.Sanity.ToString()+"   "+GameManager.LampeDePoche;
+        txt.text = GameManager.LampeDePoche+"   "+GameManager.Sanity.ToString("#.00");
     }
 }
