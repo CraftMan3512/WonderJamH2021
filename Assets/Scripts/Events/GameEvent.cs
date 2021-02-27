@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
+public class OnStartEvent : UnityEvent<GameObject>
+{
+}
 
 public class GameEvent : MonoBehaviour
 {
@@ -21,7 +25,6 @@ public class GameEvent : MonoBehaviour
         {
 
             GameObject newEvent = Instantiate(eventObject, new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y), Quaternion.identity);
-            newEvent.GetComponent<EventStarter>().StartEvent(player);
 
         }
         
