@@ -42,6 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: LevelBG
+    uniqueID: 4148506557
+    locked: 0
+  - name: Level
+    uniqueID: 1140088827
+    locked: 0
+  - name: Interactables
+    uniqueID: 1409162621
+    locked: 0
   - name: Player
     uniqueID: 1181934489
     locked: 0
