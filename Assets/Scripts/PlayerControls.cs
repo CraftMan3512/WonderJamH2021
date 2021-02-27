@@ -21,6 +21,7 @@ public class PlayerControls : MonoBehaviour
     public float energyThreshHoldFlash=20;
     private float timeLeftFlash;
     public float timeFlash=0;
+    public AudioClip stepSound;
 
     // Start is called before the first frame update
     void Start()
@@ -117,6 +118,13 @@ public class PlayerControls : MonoBehaviour
 
         lockMovement = false;
 
+    }
+
+    public void PlayStepSound()
+    {
+        
+        GetComponent<AudioSource>().PlayOneShot(stepSound);
+        
     }
     
     void MovePlayer()
