@@ -15,6 +15,8 @@ public class GameEvent : MonoBehaviour
     public void StartEvent(GameObject player)
     {
         
+        player.GetComponent<PlayerControls>().LockMovement();
+        
         onStartEvent.Invoke(player);
         
     }
