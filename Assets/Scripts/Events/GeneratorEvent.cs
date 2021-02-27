@@ -8,6 +8,7 @@ public class GeneratorEvent : MonoBehaviour
 
     public GameObject bar;
     public Transform barTop, barBottom;
+    public AudioClip leverSFX;
 
     private bool started = false;
 
@@ -52,6 +53,7 @@ public class GeneratorEvent : MonoBehaviour
         if (Math.Abs(bar.transform.position.y - barTop.position.y) < 0.05f)
         {
             
+            SoundPlayer.PlaySFX(leverSFX);
             EndEvent();
             
         }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class ChicklenEvent : MonoBehaviour
 {
     public GameObject chicken1, chicken2, pointille, couteau;
+    public AudioClip knifeSFX;
 
     private void Start()
     {
@@ -25,6 +26,7 @@ public class ChicklenEvent : MonoBehaviour
     public void OnTakeCouteau()
     {
         
+        SoundPlayer.PlaySFX(knifeSFX);
         pointille.SetActive(true);
         
     }

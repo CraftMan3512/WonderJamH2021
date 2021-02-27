@@ -128,7 +128,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 641195517
-  m_SortingLayer: 5
+  m_SortingLayer: 8
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a95b4a3b6f1da1c49882e9278a7a4ff8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -210,7 +210,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 641195517
-  m_SortingLayer: 5
+  m_SortingLayer: 8
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 5fd629e9f51eb41499e26a3388f34835, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -439,7 +439,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 641195517
-  m_SortingLayer: 5
+  m_SortingLayer: 8
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 28446a89063f2864a96e633c263c888b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1127,7 +1127,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 641195517
-  m_SortingLayer: 5
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bb22153f883400d48bd0d9172c81cd51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1291,7 +1291,7 @@ MonoBehaviour:
   chicken2: {fileID: 8667641124758979412}
   pointille: {fileID: 8667641124865022057}
   couteau: {fileID: 8667641126717032438}
-  ply: {fileID: 0}
+  knifeSFX: {fileID: 8300000, guid: 8ba4d6d27db161e4a8bb62628f99cd56, type: 3}
 --- !u!1 &8667641126576321347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,7 +1443,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 641195517
-  m_SortingLayer: 5
+  m_SortingLayer: 8
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 21fa02ba33993144cb775459ffb0f71b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
