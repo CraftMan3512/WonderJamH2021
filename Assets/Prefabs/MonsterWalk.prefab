@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e5f6228b535e84ab1a0e589e7952fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temp: 1
+  temp: 2
 --- !u!114 &-4921587399455125369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,3 +456,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c662b50f8a78ce43ac413c86f6ee3b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  speed: 3
