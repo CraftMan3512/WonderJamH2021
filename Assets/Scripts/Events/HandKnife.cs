@@ -16,11 +16,11 @@ public class HandKnife : MonoBehaviour
     {
         if(shakeAmplitude == 0)
         {
-            shakeAmplitude = 1;
+            shakeAmplitude = 0.2f;
         }
         if(shakeSpeed == 0)
         {
-            shakeSpeed = 1;
+            shakeSpeed = 0.3f;
         }
         fm = GetComponent<FollowMouse>();
         shake = new Vector2(0, 0);
@@ -34,7 +34,7 @@ public class HandKnife : MonoBehaviour
         shake = Vector2.MoveTowards(shake, target, shakeSpeed * Time.deltaTime);
         fm.xOffset = shake.x;
         fm.yOffset = shake.y;
-        if(Vector2.Distance(shake,target) < 0.1f)
+        if(Vector2.Distance(shake,target) < 0.05f)
         {
             SetTarget();
         }
@@ -50,7 +50,7 @@ public class HandKnife : MonoBehaviour
         if (clicked)
         {
             float xDistance = Mathf.Abs(transform.position.x - line.transform.position.x);
-            if (xDistance > 0.2f)
+            if (xDistance > 0.05f)
             {
                 transform.position = Vector2.MoveTowards(transform.position, new Vector2(line.transform.position.x, transform.position.y), 1f/(xDistance) * Time.deltaTime);
                 
