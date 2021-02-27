@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -14,6 +16,11 @@ public class PlayerControls : MonoBehaviour
     private bool droit =true;
     public GameObject lampePoche;
     private Light2D LampeDePocheLight2d;
+    public Slider energy;
+    public float energyDownRate;
+    public float energyThreshHoldFlash=20;
+    private float timeLeftFlash;
+    public float timeFlash=0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,14 +28,78 @@ public class PlayerControls : MonoBehaviour
         LampeDePocheLight2d = lampePoche.GetComponent<Light2D>();
         rb = GetComponent<Rigidbody2D>();
         baseScale = transform.localScale;
+        LampeDePocheLight2d.enabled = false;
+        energy.value = 100;
     }
     private void FixedUpdate()
     {
         MovePlayer();
-       
-        
+
+        if (GameManager.LampeDePoche)
+        {
+            energy.value -= energyDownRate * Time.deltaTime;
+            if (energy.value <= 0)
+            {
+                ToggleLampeDePoche();
+            }else if (energy.value<energyThreshHoldFlash)
+            {
+                Flash(true);
+            }
+        }
     }
 
+    private void ToggleLampeDePoche()
+    {
+        if (GameManager.LampeDePoche) 
+        {
+            lampePoche.GetComponent<Light2D>().enabled = false;
+            GameManager.LampeDePoche = false;
+        }
+        else if(energy.value>0)
+        {
+            lampePoche.GetComponent<Light2D>().enabled = true;
+            GameManager.LampeDePoche = true;
+        }
+    }
+
+    private void ToggleOffLampeDePoche()
+    {
+        lampePoche.GetComponent<Light2D>().enabled = false;
+    }
+
+    private void ToggleOnLampeDePoche()
+    {
+        lampePoche.GetComponent<Light2D>().enabled = true;
+    }
+
+    private bool Flash(bool reset)
+    {
+        if (reset)
+        {
+            float temp=(100 - energy.value) / 100;
+            float often=10f;
+            if (timeLeftFlash <= 0&&Random.Range(0,(int)(often-(temp*often/2)))==0)
+            {
+                timeLeftFlash = 0.10f;
+                ToggleOffLampeDePoche();
+            }
+            else if (timeLeftFlash > 0)
+            {
+                timeLeftFlash -= Time.deltaTime * temp;
+                if (timeLeftFlash <= 0)
+                {
+                    ToggleOnLampeDePoche();
+                    timeLeftFlash = 0;
+                }
+
+                return true;
+            }
+        }else if (timeLeftFlash > 0)
+            return true;
+
+        return false;
+
+    }
     private void Update()
     {
         Interactions();
@@ -92,18 +163,9 @@ public class PlayerControls : MonoBehaviour
 
     private void Interactions()
     {
-        if (Input.GetKeyDown("f"))
+        if (Input.GetKeyDown("f")&&!Flash(false))
         {
-            if (GameManager.LampeDePoche) 
-            {
-                lampePoche.GetComponent<Light2D>().enabled = false;
-                GameManager.LampeDePoche = false;
-            }
-            else
-            {
-                lampePoche.GetComponent<Light2D>().enabled = true;
-                GameManager.LampeDePoche = true;
-            }
+            ToggleLampeDePoche();
         }
     }
 
