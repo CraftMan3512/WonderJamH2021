@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -9,17 +10,28 @@ public class PlayerControls : MonoBehaviour
     public bool lockMovement;
     public float speed;
     private Rigidbody2D rb;
-    
+    private Vector3 baseScale;
+    private bool droit =true;
+    public GameObject lampePoche;
+    private Light2D LampeDePocheLight2d;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        LampeDePocheLight2d = lampePoche.GetComponent<Light2D>();
         rb = GetComponent<Rigidbody2D>();
-
+        baseScale = transform.localScale;
     }
     private void FixedUpdate()
     {
         MovePlayer();
+       
+        
+    }
+
+    private void Update()
+    {
+        Interactions();
     }
 
     public void LockMovement()
@@ -35,7 +47,7 @@ public class PlayerControls : MonoBehaviour
         lockMovement = false;
 
     }
-
+    
     void MovePlayer()
     {
 
@@ -61,6 +73,15 @@ public class PlayerControls : MonoBehaviour
             
             }
 
+            if (Input.GetAxisRaw("Horizontal") < 0&&droit)
+            {
+                droit = false;
+                transform.localScale = new Vector3(-baseScale.x,baseScale.y,baseScale.z);
+            }else if (Input.GetAxisRaw("Horizontal") > 0&&!droit)
+            {
+                droit = true;
+                transform.localScale = new Vector3(baseScale.x,baseScale.y,baseScale.z);
+            }
             if (Input.GetAxisRaw("Horizontal") == 0) rb.gravityScale = 0;
             else rb.gravityScale = 1;
             rb.MovePosition(rb.transform.position + (surfaceDir * (Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime)));    
@@ -68,6 +89,25 @@ public class PlayerControls : MonoBehaviour
         }
         
     }
+
+    private void Interactions()
+    {
+        if (Input.GetKeyDown("f"))
+        {
+            if (GameManager.LampeDePoche) 
+            {
+                lampePoche.GetComponent<Light2D>().enabled = false;
+                GameManager.LampeDePoche = false;
+            }
+            else
+            {
+                lampePoche.GetComponent<Light2D>().enabled = true;
+                GameManager.LampeDePoche = true;
+            }
+        }
+    }
+
+    
 
     private void OnDrawGizmos() //to remove later
     {
