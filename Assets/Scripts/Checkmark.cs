@@ -17,8 +17,6 @@ public class Checkmark : MonoBehaviour
     {
         largeurEcran = Screen.width;
         textSize = (9 * (largeurEcran / 500));
-
-        CompletedTask(0);
     }
 
     // Update is called once per frame
@@ -43,6 +41,7 @@ public class Checkmark : MonoBehaviour
                 text.GetComponent<TextMeshProUGUI>().fontSize = textSize;
                 text.GetComponent<TextMeshProUGUI>().fontStyle = TMPro.FontStyles.Italic | TMPro.FontStyles.Bold;
                 text.GetComponent<TextMeshProUGUI>().alignment = TextAlignmentOptions.CenterGeoAligned;
+                text.GetComponent<TextMeshProUGUI>().color = new Color32(255,0,0,255);
             }
         }
 
