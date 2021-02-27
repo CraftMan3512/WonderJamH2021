@@ -31,8 +31,13 @@ public class SoundPlayer : MonoBehaviour
 
     public static void PlaySFX(AudioClip sfx, float vol = 1f)
     {
-        
-        if (instance.source != null) instance.source.PlayOneShot(sfx,2*instance.globalVolume*vol);
+
+        if (instance != null)
+        {
+            
+            if (instance.source != null) instance.source.PlayOneShot(sfx,2*instance.globalVolume*vol);   
+            
+        }
 
     }
 
