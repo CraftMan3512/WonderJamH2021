@@ -45,6 +45,10 @@ public class PlayerControls : MonoBehaviour
                 ToggleLampeDePoche();
             }else if (energy.value<energyThreshHoldFlash)
             {
+                if (energy.value <= 0)
+                {
+                    timeLeftFlash = 0;
+                }
                 Flash(true);
             }
         }
