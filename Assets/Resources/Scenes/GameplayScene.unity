@@ -1368,6 +1368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 390400173}
+  displaySFX: {fileID: 8300000, guid: 4b2d7fbb09ad6e14eb93cd10244fe722, type: 3}
 --- !u!114 &390400173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6454,7 +6455,7 @@ PrefabInstance:
     - target: {fileID: 3935618204578856107, guid: f0d13467c11d75a4f9d5c9ebee99a636,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.24902914
+      value: 0.2500482
       objectReference: {fileID: 0}
     - target: {fileID: 3935618204578856107, guid: f0d13467c11d75a4f9d5c9ebee99a636,
         type: 3}
@@ -6464,7 +6465,7 @@ PrefabInstance:
     - target: {fileID: 3935618204578856107, guid: f0d13467c11d75a4f9d5c9ebee99a636,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.6298
+      value: -2.6257
       objectReference: {fileID: 0}
     - target: {fileID: 3935618204578856107, guid: f0d13467c11d75a4f9d5c9ebee99a636,
         type: 3}

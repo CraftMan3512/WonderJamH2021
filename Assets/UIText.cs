@@ -7,6 +7,8 @@ public class UIText : MonoBehaviour
 {
 
     public TextMeshProUGUI text;
+
+    public AudioClip displaySFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class UIText : MonoBehaviour
     {
 
         text.text = displayText;
+        SoundPlayer.PlaySFX(displaySFX);
         
         //fade in
         while (text.color.a < 1)
