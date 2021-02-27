@@ -17,6 +17,7 @@ public class HandKnife : MonoBehaviour
     private GameObject line;
     private Vector2 fingerEventPos;
     private bool clicked = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,6 +79,8 @@ public class HandKnife : MonoBehaviour
             else
             {
                 //Blood shit and fade;
+                GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(4);
+                Destroy(transform.parent.gameObject);
             }
         }
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Stair
   - Light
+  - CheckMark
   layers:
   - Default
   - TransparentFX
