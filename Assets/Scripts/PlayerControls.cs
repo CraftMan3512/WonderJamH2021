@@ -28,7 +28,9 @@ public class PlayerControls : MonoBehaviour
     private GameObject CurrFlashLightMonster;
     public float TimeFlashMonster;
     private float TimeLeftFlashMonster;
-    
+    private float TimeLeftNextShadow;
+    public GameObject PrefabShadowMonster;
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +40,7 @@ public class PlayerControls : MonoBehaviour
         baseScale = transform.localScale;
         LampeDePocheLight2d.enabled = false;
         energy.value = 35;
+        TimeLeftNextShadow = Random.Range(0, 10);
     }
     private void FixedUpdate()
     {
@@ -74,7 +77,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (reset)
         {
-            if (!CurrFlashLightMonster)
+            if (!CurrFlashLightMonster&&GameManager.Sanity<80)
             {
                 CurrFlashLightMonster = Instantiate(PrefabFlashLightMonster, transform.Find("SpawnFront").position,Quaternion.identity);
                 if (transform.localScale.x > 0)
@@ -132,15 +135,23 @@ public class PlayerControls : MonoBehaviour
                 Flash(true);
             }
         }
+        
 
-        if (TimeLeftFlashMonster > 0)
+        if (!CurrFlashLightMonster&&GameManager.Sanity<50&& TimeLeftNextShadow<=0)
         {
-            TimeLeftFlashMonster -= Time.deltaTime;
-        }
-        else
+            CurrFlashLightMonster = Instantiate(PrefabShadowMonster, transform.Find("SpawnBehind").position,Quaternion.identity);
+            if (transform.localScale.x <= 0)
+            {
+                CurrFlashLightMonster.transform.localScale = new Vector3(
+                    -CurrFlashLightMonster.transform.localScale.x, CurrFlashLightMonster.transform.localScale.y,
+                    CurrFlashLightMonster.transform.localScale.z);
+
+            }
+            TimeLeftNextShadow=Random.Range(10, 20);
+            
+        }else if (TimeLeftNextShadow > 0&&!CurrFlashLightMonster)
         {
-            if (CurrFlashLightMonster)
-                Destroy(CurrFlashLightMonster);
+            TimeLeftNextShadow -= Time.deltaTime;
         }
     }
 
@@ -263,7 +274,8 @@ public class PlayerControls : MonoBehaviour
         if (other.transform.CompareTag("Monstre"))
         {
             Instantiate((GameObject)Resources.Load("Events/DemonFight"),new Vector3(Camera.main.transform.position.x,Camera.main.transform.position.y,0),Quaternion.identity);
-            Debug.Log("Jaime les penis");
+            Destroy(other.gameObject);
+            LockMovement();
         }
     }
 

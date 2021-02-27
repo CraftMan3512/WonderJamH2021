@@ -67,8 +67,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -164301665
-  m_SortingLayer: 0
+  m_SortingLayerID: 1055742931
+  m_SortingLayer: 6
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 083001c322df93f45adb7df4069471f0, type: 3}
   m_Color: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
@@ -148,8 +148,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -164301665
-  m_SortingLayer: 0
+  m_SortingLayerID: 1055742931
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9ec9295b5adff07499abd399e1593580, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -229,8 +229,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -164301665
-  m_SortingLayer: 0
+  m_SortingLayerID: 1055742931
+  m_SortingLayer: 6
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 9ec9295b5adff07499abd399e1593580, type: 3}
   m_Color: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
@@ -310,8 +310,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -164301665
-  m_SortingLayer: 0
+  m_SortingLayerID: 1055742931
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 083001c322df93f45adb7df4069471f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -335,6 +335,8 @@ GameObject:
   - component: {fileID: 4670855296037343429}
   - component: {fileID: 4670855296037343430}
   - component: {fileID: 4670855296037343428}
+  - component: {fileID: -434145228166307780}
+  - component: {fileID: -4921587399455125369}
   m_Layer: 0
   m_Name: MonsterWalk
   m_TagString: Monstre
@@ -396,8 +398,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -164301665
-  m_SortingLayer: 0
+  m_SortingLayerID: 1055742931
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a2fe1d15e0e42984182fa288e4de68ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -429,3 +431,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-434145228166307780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4670855296037343431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76e5f6228b535e84ab1a0e589e7952fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temp: 2
+--- !u!114 &-4921587399455125369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4670855296037343431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c662b50f8a78ce43ac413c86f6ee3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  speed: 3

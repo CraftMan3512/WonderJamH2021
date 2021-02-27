@@ -92,6 +92,8 @@ GameObject:
   - component: {fileID: 6387443950374137631}
   - component: {fileID: 6387443950374137628}
   - component: {fileID: 2699213361675466823}
+  - component: {fileID: 575895074609111769}
+  - component: {fileID: -3036695924683733018}
   m_Layer: 0
   m_Name: MonsterIdle
   m_TagString: Monstre
@@ -193,6 +195,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6515049, y: 1.4268568}
   m_EdgeRadius: 0
+--- !u!114 &575895074609111769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387443950374137629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c662b50f8a78ce43ac413c86f6ee3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  speed: 0.2
+--- !u!114 &-3036695924683733018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387443950374137629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76e5f6228b535e84ab1a0e589e7952fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temp: 5
 --- !u!1 &6387443950554625842
 GameObject:
   m_ObjectHideFlags: 0
