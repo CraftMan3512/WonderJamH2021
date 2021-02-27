@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: 21fa02ba33993144cb775459ffb0f71b
+guid: a4f0dc05d88320248b61e228ec1f7aa0
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -5676011359079399521
+    second: PlayerWalk2_0
+  - first:
+      213: -959918375468007430
+    second: PlayerWalk2_1
+  - first:
+      213: -4531392029881757168
+    second: PlayerWalk2_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,11 +49,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.7028417, y: 0.98679644}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -85,7 +94,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: PlayerWalk2_0
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 104
+        width: 222
+        height: 516
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9f7df0edb1ca31b0800000000000000
+      internalID: -5676011359079399521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWalk2_1
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 126
+        width: 194
+        height: 522
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afffbd8c25fada2f0800000000000000
+      internalID: -959918375468007430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerWalk2_2
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 129
+        width: 200
+        height: 514
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0129cd805f24d11c0800000000000000
+      internalID: -4531392029881757168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
