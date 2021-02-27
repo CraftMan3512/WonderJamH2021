@@ -51,7 +51,8 @@ public class PlayerControls : MonoBehaviour
     private void ToggleLampeDePoche()
     {
         timeLeftFlash = 0;
-        CurrFlashLightMonster.SetActive(false);
+        if(CurrFlashLightMonster)
+            CurrFlashLightMonster.SetActive(false);
         if (GameManager.LampeDePoche) 
         {
             lampePoche.GetComponent<Light2D>().enabled = false;
