@@ -36,26 +36,17 @@ public class PlayerControls : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        
+        
+        //Lampe de poche stuff
+        
 
-        if (GameManager.LampeDePoche)
-        {
-            energy.value -= energyDownRate * Time.deltaTime;
-            if (energy.value <= 0)
-            {
-                ToggleLampeDePoche();
-            }else if (energy.value<energyThreshHoldFlash)
-            {
-                if (energy.value <= 0)
-                {
-                    timeLeftFlash = 0;
-                }
-                Flash(true);
-            }
-        }
     }
 
+   
     private void ToggleLampeDePoche()
     {
+        timeLeftFlash = 0;
         if (GameManager.LampeDePoche) 
         {
             lampePoche.GetComponent<Light2D>().enabled = false;
@@ -109,6 +100,22 @@ public class PlayerControls : MonoBehaviour
     private void Update()
     {
         Interactions();
+        
+        if (GameManager.LampeDePoche)
+        {
+            energy.value -= energyDownRate * Time.deltaTime;
+            if (energy.value <= 0)
+            {
+                ToggleLampeDePoche();
+            }else if (energy.value<energyThreshHoldFlash)
+            {
+                if (energy.value <= 0)
+                {
+                    timeLeftFlash = 0;
+                }
+                Flash(true);
+            }
+        }
     }
 
     public void LockMovement()
@@ -189,7 +196,7 @@ public class PlayerControls : MonoBehaviour
 
     private void Interactions()
     {
-        if (!lockMovement && Input.GetKeyDown(KeyCode.F)&&!Flash(false))
+        if (!lockMovement && Input.GetKeyDown(KeyCode.F))
         {
             ToggleLampeDePoche();
         }
@@ -199,6 +206,7 @@ public class PlayerControls : MonoBehaviour
             
             ToggleOffLampeDePoche();
             GameManager.LampeDePoche = false;
+            
             LockMovement();
             StopAllCoroutines();
             StartCoroutine(CrankFlashlight());
