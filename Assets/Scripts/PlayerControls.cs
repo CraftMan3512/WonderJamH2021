@@ -40,6 +40,7 @@ public class PlayerControls : MonoBehaviour
         baseScale = transform.localScale;
         LampeDePocheLight2d.enabled = false;
         energy.value = 35;
+        TimeLeftNextShadow = Random.Range(0, 10);
     }
     private void FixedUpdate()
     {
@@ -76,7 +77,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (reset)
         {
-            if (!CurrFlashLightMonster&&GameManager.Sanity<50)
+            if (!CurrFlashLightMonster&&GameManager.Sanity<80)
             {
                 CurrFlashLightMonster = Instantiate(PrefabFlashLightMonster, transform.Find("SpawnFront").position,Quaternion.identity);
                 if (transform.localScale.x > 0)
