@@ -1,11 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ChicklenEvent : MonoBehaviour
 {
     public GameObject chicken1, chicken2, pointille, couteau, ply;
-    
+
+    private void Start()
+    {
+        StartEvent(ply);
+    }
+
     public void StartEvent(GameObject _ply)
     {
 
@@ -29,7 +35,7 @@ public class ChicklenEvent : MonoBehaviour
         
         pointille.SetActive(false);
         chicken1.SetActive(false);
-        chicken2.SetActive(false);
+        chicken2.SetActive(true);
         
     }
 
