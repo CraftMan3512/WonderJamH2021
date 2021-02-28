@@ -1769,8 +1769,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 8
     localAABB:
-      m_Center: {x: 0.013835192, y: -0.36521924, z: 0}
-      m_Extent: {x: 1.1256707, y: 2.3524628, z: 0}
+      m_Center: {x: 0.01259613, y: -0.0069286823, z: 0}
+      m_Extent: {x: 58.023117, y: 1.251281, z: 0}
   m_Shapes:
     vertices: []
     shapes: []
@@ -1849,7 +1849,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 224
-    _typelessdata: e8898abf987afc3f00000000de8fd93b8ffe7fbf000000800000008080bb8f3f22932dc000000000f28923bbccff7f3f000000800000008054db913ffe5dfe3f0000000098ff7fbf6672673b0000008000000080a0508ebf80ee2dc000000000b3fe7f3f991ccebb000000800000008054db913ffe5dfe3f00000000de8fd93b8ffe7fbf0000008000000080e8898abf987afc3f00000000b3fe7f3f991ccebb000000800000008080bb8f3f22932dc00000000098ff7fbf6672673b0000008000000080a0508ebf80ee2dc000000000f28923bbccff7f3f0000008000000080
+    _typelessdata: 1eff67c2fac89d3f000000001eadd238000080bf0000008000000080922468424a3b9dbf000000001bce86b9ffff7f3f00000080000000802f236842f0469f3f00000000fdff7fbffb900fba0000000000000080c60a68c2040da1bf0000000051ff7f3f41be95bb00000080000000802f236842f0469f3f000000001eadd238000080bf00000080000000801eff67c2fac89d3f0000000051ff7f3f41be95bb0000008000000080922468424a3b9dbf00000000fdff7fbffb900fba0000000000000080c60a68c2040da1bf000000001bce86b9ffff7f3f0000008000000080
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -1903,8 +1903,8 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: 0.013835192, y: -0.36521924, z: 0}
-    m_Extent: {x: 1.1256707, y: 2.3524628, z: 0}
+    m_Center: {x: 0.01259613, y: -0.0069286823, z: 0}
+    m_Extent: {x: 58.023117, y: 1.251281, z: 0}
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
@@ -5626,6 +5626,7 @@ GameObject:
   - component: {fileID: 1586763580}
   - component: {fileID: 1586763581}
   - component: {fileID: 1586763577}
+  - component: {fileID: 1586763582}
   m_Layer: 10
   m_Name: Chicken
   m_TagString: Untagged
@@ -5713,7 +5714,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586763576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.829, y: -1.727, z: 0}
+  m_LocalPosition: {x: 1.66, y: -1.7105, z: 0}
   m_LocalScale: {x: 0.17678937, y: 0.17678937, z: 0.17678937}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5754,6 +5755,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 1.04}
   serializedVersion: 2
   m_Radius: 1.04
+--- !u!114 &1586763582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586763576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a0ac5dc4b0f1e4bb218bc8534bf318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2805106105828496663}
+  animator: {fileID: 1586763580}
+  rb: {fileID: 1586763577}
 --- !u!1 &1623531574
 GameObject:
   m_ObjectHideFlags: 0
