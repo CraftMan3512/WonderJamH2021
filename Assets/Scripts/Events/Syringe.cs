@@ -24,33 +24,46 @@ public class Syringe : MonoBehaviour
     void Start()
     {
 
-        if (GameManager.PickedUpSeringue)
+        if (GameManager.PickedUpNote)
         {
-            if (!GameManager.PickedUpBlood)
+            
+            if (GameManager.PickedUpSeringue)
             {
+                if (!GameManager.PickedUpBlood)
+                {
                 
-                StartEvent();
+                    StartEvent();
                 
+                }
+                else
+                {
+                
+                    GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I already stored some blood.", 2f, false);
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+                    Destroy(gameObject);
+                
+                }
+
             }
             else
             {
-                
-                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I already stored some blood.", 2f, false);
+            
+                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("A perfect place to store blood.", 2f, false);
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
                 Destroy(gameObject);
-                
-            }
-
+            
+            }   
+            
         }
         else
         {
             
-            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("A perfect place to store blood.", 2f, false);
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I have to find how to kill that demon", 2f, false);
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
             Destroy(gameObject);
             
         }
-        
+
     }
 
     void StartEvent()
