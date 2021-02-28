@@ -63,6 +63,10 @@ public class ChicklenEvent : MonoBehaviour
         chicken2.SetActive(false);
         heart.SetActive(false);
         
+        couteau.GetComponent<FollowMouse>().Follow();
+        OnTakeCouteau();
+        
+        
     }
 
     public void OnTakeCouteau()
