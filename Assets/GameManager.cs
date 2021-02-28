@@ -34,4 +34,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public static void ResetValues()
+    {
+        LampeDePoche = false;
+        Sanity = 100;
+        Difficulter = 1f;
+    }
+
 }
