@@ -24,7 +24,7 @@ public class Interactable : MonoBehaviour
     private void Start()
     {
 
-        highlight.enabled = false;
+        if (highlight != null) highlight.enabled = false;
 
     }
 
@@ -60,7 +60,7 @@ public class Interactable : MonoBehaviour
 
             ply = other.gameObject;
             indicatorEnabled = true;
-            highlight.enabled = true;
+            if (highlight != null) highlight.enabled = true;
         }
 
     }
@@ -73,7 +73,7 @@ public class Interactable : MonoBehaviour
 
             ply = null;
             indicatorEnabled = false;
-            highlight.enabled = false;
+            if (highlight != null) highlight.enabled = false;
         }
 
     }

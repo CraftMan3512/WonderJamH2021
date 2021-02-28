@@ -84,4 +84,26 @@ public class RunningChicken : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(0.5f,3f));
         }   
     }
+
+    public void PickupChicken()
+    {
+
+        if (GameManager.PickedUpKnife)
+        {
+            
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Picked up a dead chicken!", 2f);
+            GameManager.PickedUpChicken = true;
+            Destroy(gameObject);    
+            
+        }
+        else
+        {
+            
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I need a weapon to kill it.", 2f);
+            
+        }
+        
+        
+    }
+    
 }
