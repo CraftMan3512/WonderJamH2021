@@ -24,7 +24,9 @@ public class Checkmark : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            
+
+        GetComponent<CanvasGroup>().alpha = GameManager.PickedUpNote ? 0.6f : 0f;
+
     }
 
 
