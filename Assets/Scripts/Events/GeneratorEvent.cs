@@ -63,6 +63,8 @@ public class GeneratorEvent : MonoBehaviour
     public void EndEvent()
     {
         
+        GameObject.Find("PowerOutage").GetComponent<PowerOutage>().Fix();
+        
         //Debug.Log("EVENT GENERATOR DONE!!!");
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
         
