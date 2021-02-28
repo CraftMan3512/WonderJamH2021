@@ -5,7 +5,7 @@ using UnityEngine;
 public class Circle : MonoBehaviour
 {
 
-    private float reductionSpeed = 0.2f;
+    private float reductionSpeed = 0.25f;
     private float startingScale;
     private float amplitude;
 

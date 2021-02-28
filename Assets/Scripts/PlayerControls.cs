@@ -169,7 +169,8 @@ public class PlayerControls : MonoBehaviour
         
         if (GameManager.LampeDePoche)
         {
-            energy.value -= energyDownRate * Time.deltaTime;
+            int temp = GetComponent<Sanity>().encounter ? 0 : 1;
+            energy.value -= energyDownRate * Time.deltaTime*temp;
             if (energy.value <= 0)
             {
                 ToggleLampeDePoche();
@@ -214,7 +215,7 @@ public class PlayerControls : MonoBehaviour
             //DEATH
             dead = true;
             LockMovement(); 
-            SoundPlayer.PlaySFX(Resources.Load<AudioClip>("SFX/SFX_Death"), 2f);
+            SoundPlayer.PlaySFX(Resources.Load<AudioClip>("SFX/SFX_Death"), 4f);
             GetComponent<SceneChanger>().ChangeScene();
             
         }
