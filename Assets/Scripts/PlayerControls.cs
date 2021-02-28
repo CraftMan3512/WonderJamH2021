@@ -92,7 +92,7 @@ public class PlayerControls : MonoBehaviour
             if (!CurrFlashLightMonster&&GameManager.Sanity<80&&TimeLeftFlashMonster<=0)
             {
                 
-                SoundPlayer.PlaySFX(haaSFX[Random.Range(0,2)], 2f);
+                SoundPlayer.PlaySFX(haaSFX[Random.Range(0,2)], 4f);
                 CurrFlashLightMonster = Instantiate(PrefabFlashLightMonster, transform.Find("SpawnFront").position,Quaternion.identity);
                 if (transform.localScale.x > 0)
                 {
@@ -137,7 +137,7 @@ public class PlayerControls : MonoBehaviour
 
         CheckDeath();
         
-        Interactions();
+        if (!lockMovement) Interactions();
         
         if (GameManager.LampeDePoche)
         {
@@ -155,12 +155,6 @@ public class PlayerControls : MonoBehaviour
                 Flash(true);
             }
         }
-
-        if (GameManager.Sanity <= 0)
-        {
-            //TODO death
-        }
-        
 
         if (!CurrFlashLightMonster&&GameManager.Sanity<50&& TimeLeftNextShadow<=0)
         {
