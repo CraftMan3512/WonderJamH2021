@@ -61,7 +61,7 @@ public class LevelLoader : MonoBehaviour
                 transitionObj = Crossfade;
                 
                 break;
-            case TransitionTypes.CoolTransition:
+            case TransitionTypes.DeathTransition:
 
                 time = CoolTransitionTime;
                 transitionObj = CoolTransition;
@@ -85,6 +85,8 @@ public class LevelLoader : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(scene);
+        
+        transition.ResetTrigger("Start");
 
     }
     

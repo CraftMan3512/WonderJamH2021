@@ -32,6 +32,7 @@ public class PlayerControls : MonoBehaviour
     private float TimeLeftNextShadow;
     public GameObject PrefabShadowMonster;
 
+    private bool dead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -122,6 +123,8 @@ public class PlayerControls : MonoBehaviour
     }
     private void Update()
     {
+
+        CheckDeath();
         
         Interactions();
         
@@ -164,6 +167,21 @@ public class PlayerControls : MonoBehaviour
         {
             TimeLeftNextShadow -= Time.deltaTime;
         }
+    }
+
+    void CheckDeath()
+    {
+
+        if (GameManager.Sanity <= 0 && !dead)
+        {
+            
+            //DEATH
+            dead = true;
+            LockMovement(); 
+            GetComponent<SceneChanger>().ChangeScene();
+            
+        }
+        
     }
 
     public void LockMovement()
