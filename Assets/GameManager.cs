@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Sanity -= value;
+            Sanity -= value*Difficulter;
         }
     }
 
