@@ -17,7 +17,7 @@ public class Contour : MonoBehaviour
     {
         if(GameManager.Sanity < 70)
         {
-            cg.alpha = 1 - GameManager.Sanity / 100f;
+            cg.alpha = 0.7f - GameManager.Sanity / 100f;
         }
         else
         {
