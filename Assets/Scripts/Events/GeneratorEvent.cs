@@ -8,6 +8,7 @@ public class GeneratorEvent : MonoBehaviour
 
     public GameObject bar;
     public Transform barTop, barBottom;
+    public AudioClip leverSFX;
 
     private bool started = false;
 
@@ -15,7 +16,21 @@ public class GeneratorEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartEvent();
+
+        if (GameObject.Find("PowerOutage").GetComponent<PowerOutage>().isOutage())
+        {
+            
+            StartEvent();   
+            
+        }
+        else
+        {
+            
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("The breaker is on.", 2f, false);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+            Destroy(gameObject);
+            
+        }
     }
 
     public void StartEvent()
@@ -52,6 +67,7 @@ public class GeneratorEvent : MonoBehaviour
         if (Math.Abs(bar.transform.position.y - barTop.position.y) < 0.05f)
         {
             
+            SoundPlayer.PlaySFX(leverSFX);
             EndEvent();
             
         }
@@ -61,7 +77,9 @@ public class GeneratorEvent : MonoBehaviour
     public void EndEvent()
     {
         
-        Debug.Log("EVENT GENERATOR DONE!!!");
+        GameObject.Find("PowerOutage").GetComponent<PowerOutage>().Fix();
+        
+        //Debug.Log("EVENT GENERATOR DONE!!!");
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
         
         Destroy(gameObject);

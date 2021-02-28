@@ -9,6 +9,7 @@ public class HandKnife : MonoBehaviour
     public float maxHeight;
     public float maxWidth;
     private float baseHeightOffset;
+    public AudioClip knifeSFX;
 
 
     private Vector2 target;
@@ -17,9 +18,59 @@ public class HandKnife : MonoBehaviour
     private GameObject line;
     private Vector2 fingerEventPos;
     private bool clicked = false;
+
+    private bool ended = false;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        if (!GameManager.PickedUpFinger)
+        {
+            
+            if (GameManager.PickedUpOuija)
+            {
+
+                if (GameManager.PickedUpKnife)
+                {
+                
+                    StartEvent();
+                
+                }
+                else
+                {
+                
+                    GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I should find a tool to cut with...", 2f, false);
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+                    Destroy(transform.parent.gameObject);
+                
+                }
+
+            }
+            else
+            {
+            
+                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I need a cutting board...", 2f, false);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+                Destroy(transform.parent.gameObject);
+            
+            }
+            
+        }
+        else
+        {
+            
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I already cut my finger...", 2f, false);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+            Destroy(transform.parent.gameObject);
+            
+        }
+
+    }
+
+    void StartEvent()
+    {
+        
         if(shakeAmplitude == 0)
         {
             shakeAmplitude = 0.2f;
@@ -30,9 +81,11 @@ public class HandKnife : MonoBehaviour
         }
         fm = GetComponent<FollowMouse>();
         fingerEventPos = transform.parent.position;
+        fingerEventPos += new Vector2(-0.5f, 0.3f);
         shake = new Vector2(0, 0);
         baseHeightOffset = -1;
         SetTarget();
+        
     }
 
     // Update is called once per frame
@@ -48,7 +101,7 @@ public class HandKnife : MonoBehaviour
         }
         if(Mathf.Abs(mousePos.y - fingerEventPos.y) > maxHeight)
         {
-            yMouseOffset = -((mousePos.y - fingerEventPos.y) - Mathf.Sign((mousePos.y - fingerEventPos.y)) * maxHeight);
+            yMouseOffset = -((mousePos.y - fingerEventPos.y) - (Mathf.Sign((mousePos.y - fingerEventPos.y)) * maxHeight));
         }
         
         shake = Vector2.MoveTowards(shake, target, shakeSpeed * Time.deltaTime);
@@ -69,6 +122,7 @@ public class HandKnife : MonoBehaviour
 
         if (clicked)
         {
+
             float xDistance = Mathf.Abs(transform.position.x - line.transform.position.x);
             if (xDistance > 0.05f)
             {
@@ -77,12 +131,39 @@ public class HandKnife : MonoBehaviour
             }
             else
             {
-                //Blood shit and fade;
+
+                if (!ended)
+                {
+                    
+                    SoundPlayer.PlaySFX(knifeSFX);
+                    ended = true;
+                    StopAllCoroutines();
+                    StartCoroutine(EndEvent());
+                    
+                }
+
             }
         }
 
 
 
+    }
+
+    IEnumerator EndEvent()
+    {
+        
+        yield return new WaitForSeconds(2f);
+        
+        //Blood shit and fade;
+        GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(4);
+        GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found some human fingers!", 2f);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+        GameManager.PickedUpFinger = true;
+        
+        GameManager.CheckWin();
+        
+        Destroy(transform.parent.gameObject);
+        
     }
 
     

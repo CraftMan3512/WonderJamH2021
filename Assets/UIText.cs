@@ -7,28 +7,23 @@ public class UIText : MonoBehaviour
 {
 
     public TextMeshProUGUI text;
+
+    public AudioClip displaySFX;
     // Start is called before the first frame update
     void Start()
     {
 
         text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
-        StartCoroutine(testCor());
 
     }
 
-    IEnumerator testCor()
-    {
-        
-        yield return new WaitForSeconds(2f);
-        DisplayText("CECI EST UN TEST TEXTE!", 5f);
-        
-        
-    }
-
-    public void DisplayText(string displayText, float nbSecs = 2f)
+    public void DisplayText(string displayText, float nbSecs = 2f, bool playSound = true)
     {
         
         StopAllCoroutines();
+        
+        if (playSound) SoundPlayer.PlaySFX(displaySFX);
+        
         StartCoroutine(TextDisplayCor(displayText, nbSecs));
 
 
@@ -38,7 +33,7 @@ public class UIText : MonoBehaviour
     {
 
         text.text = displayText;
-        
+
         //fade in
         while (text.color.a < 1)
         {

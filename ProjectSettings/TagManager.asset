@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Stair
   - Light
+  - CheckMark
+  - Monstre
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - 
   - Player
   - Stair
-  - 
+  - Chicken
   - 
   - 
   - 
@@ -49,14 +51,20 @@ TagManager:
   - name: Level 1
     uniqueID: 1140088827
     locked: 0
-  - name: Level 2
-    uniqueID: 2002064889
-    locked: 0
   - name: Interactables
     uniqueID: 1409162621
     locked: 0
   - name: Player
     uniqueID: 1181934489
+    locked: 0
+  - name: Level 2
+    uniqueID: 2002064889
+    locked: 0
+  - name: Monster
+    uniqueID: 1055742931
+    locked: 0
+  - name: "Lumi\xE8res"
+    uniqueID: 895865643
     locked: 0
   - name: Event
     uniqueID: 641195517
