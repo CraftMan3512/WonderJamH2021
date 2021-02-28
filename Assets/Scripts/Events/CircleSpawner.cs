@@ -11,7 +11,7 @@ public class CircleSpawner : MonoBehaviour
     private float halfMaxWidth = 0.7f;
     SpriteRenderer[] sr = new SpriteRenderer[2];
     private float difficulty;
-
+    Sanity s;
     // Update is called once per frame
     private void Start()
     {
@@ -21,7 +21,9 @@ public class CircleSpawner : MonoBehaviour
         timeLeft = timeBetweenCircles;
         sr[0] = transform.parent.GetChild(0).GetComponent<SpriteRenderer>();
         sr[1] = transform.parent.GetChild(1).GetComponent<SpriteRenderer>();
-        
+        s = GameObject.FindGameObjectWithTag("Player").GetComponent<Sanity>();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().LockMovement();
+        s.encounter = true;
     }
     void Update()
     {
@@ -44,6 +46,7 @@ public class CircleSpawner : MonoBehaviour
                 }
                 else
                 {
+                    s.encounter = false;
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
                     Destroy(transform.parent.gameObject);
                 }

@@ -41,7 +41,7 @@ public class Interactable : MonoBehaviour
         if (ply != null)
         {
             
-            if ( !ply.GetComponent<PlayerControls>().lockMovement && Input.GetKeyDown(KeyCode.Space))
+            if ( !ply.GetComponent<PlayerControls>().lockMovement && Input.GetKeyDown(KeyCode.E))
             {
                 
                 onInteract.Invoke(ply);

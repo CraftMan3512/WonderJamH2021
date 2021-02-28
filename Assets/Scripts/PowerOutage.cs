@@ -15,7 +15,7 @@ public class PowerOutage : MonoBehaviour
     void Start()
     {
         
-        SetNextOutage(10);
+        SetNextOutage();
         
        lamps =  GameObject.FindGameObjectsWithTag("Light");
     }
@@ -74,7 +74,7 @@ public class PowerOutage : MonoBehaviour
 
     public void SetNextOutage()
     {
-        timeUntilNextPowerOutage = Random.Range(180f, 300f)/GameManager.Difficulter;
+        timeUntilNextPowerOutage = Mathf.Max(Random.Range(80f, 120f)/GameManager.Difficulter,30f);     
     }
 
     public void SetNextOutage(float time)

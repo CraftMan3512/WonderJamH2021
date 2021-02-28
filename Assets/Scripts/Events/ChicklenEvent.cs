@@ -63,6 +63,10 @@ public class ChicklenEvent : MonoBehaviour
         chicken2.SetActive(false);
         heart.SetActive(false);
         
+        couteau.GetComponent<FollowMouse>().Follow();
+        OnTakeCouteau();
+        
+        
     }
 
     public void OnTakeCouteau()
@@ -76,6 +80,7 @@ public class ChicklenEvent : MonoBehaviour
     public void OnCutChicken()
     {
         
+        SoundPlayer.PlaySFX(knifeSFX);
         pointille.SetActive(false);
         chicken1.SetActive(false);
         chicken2.SetActive(true);
@@ -98,6 +103,7 @@ public class ChicklenEvent : MonoBehaviour
         GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(1);
         GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found a chicken's heart!", 2f);
         GameManager.PickedUpHeart = true;
+        GameManager.Difficulter += 0.2f;
         
         GameManager.CheckWin();
         
