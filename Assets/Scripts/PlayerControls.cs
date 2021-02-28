@@ -31,7 +31,6 @@ public class PlayerControls : MonoBehaviour
     private float TimeLeftFlashMonster;
     private float TimeLeftNextShadow;
     public GameObject PrefabShadowMonster;
-    private float timeLastFight;
 
     private bool dead = false;
 
@@ -146,14 +145,9 @@ public class PlayerControls : MonoBehaviour
             }
         }
 
-        if (GameManager.Sanity <= 0&&timeLastFight<=0)
+        if (GameManager.Sanity <= 0)
         {
-            Instantiate((GameObject)Resources.Load("Events/DemonFight"),new Vector3(Camera.main.transform.position.x,Camera.main.transform.position.y,0),Quaternion.identity);
-            LockMovement();
-            timeLastFight = 30;
-        }else if (timeLastFight > 0)
-        {
-            timeLastFight -= Time.deltaTime;
+            //TODO death
         }
         
 
@@ -310,7 +304,7 @@ public class PlayerControls : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.transform.CompareTag("Monstre"))
+        if (other.transform.CompareTag("Monstre")&&!lockMovement)
         {
             Instantiate((GameObject)Resources.Load("Events/DemonFight"),new Vector3(Camera.main.transform.position.x,Camera.main.transform.position.y,0),Quaternion.identity);
             Destroy(other.gameObject);

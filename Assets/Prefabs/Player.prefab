@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cd8d966aaca26438eae2657c28e62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityMinusMulti: 10
+  sanityMinusMulti: 5
   sanityAddMulti: 8
   isInLight: 0
 --- !u!1 &2805106107241043840

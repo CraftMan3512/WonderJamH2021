@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public static bool LampeDePoche;
     public static float Sanity=100;
+    public static float Difficulter=1f;
 
     public static void RemoveSanity(float value)
     {
@@ -31,15 +32,5 @@ public class GameManager : MonoBehaviour
             Sanity += value;
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        
-    }
 }
