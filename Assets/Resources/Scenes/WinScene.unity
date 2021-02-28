@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -158,10 +158,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Maybe it was just a chicken recipe and it was all in my head...
+  m_text: Maybe it was just a chicken recipe and all of this was in my head...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9def10370892d4b44862fa1a5520fb9c, type: 2}
+  m_sharedMaterial: {fileID: -186994649501154577, guid: 9def10370892d4b44862fa1a5520fb9c,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -191,7 +192,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -648,13 +649,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391349375}
-  m_LocalRotation: {x: -0, y: -0, z: 0.309017, w: 0.95105654}
-  m_LocalPosition: {x: -6.6442404, y: -6.30351, z: -18.92946}
+  m_LocalRotation: {x: 0, y: 0, z: 0.4804531, w: 0.8770204}
+  m_LocalPosition: {x: -4.85, y: -8.19, z: -18.92946}
   m_LocalScale: {x: 15.143568, y: 15.143568, z: 1.892946}
   m_Children: []
   m_Father: {fileID: 30735559}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 36}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 57.43}
 --- !u!212 &391349377
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -697,7 +698,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 71b2ac89fcd67ab4b8bf2b250037bae0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 0.48}
   m_AdaptiveModeThreshold: 0.5
@@ -1234,7 +1235,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &1018683944
 RectTransform:
