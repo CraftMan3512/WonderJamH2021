@@ -17,6 +17,8 @@ public class Checkmark : MonoBehaviour
     {
         largeurEcran = Screen.width;
         textSize = (9 * (largeurEcran / 500));
+        
+        CompletedTask(0);
     }
 
     // Update is called once per frame
