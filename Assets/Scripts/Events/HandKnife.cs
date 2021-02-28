@@ -159,6 +159,9 @@ public class HandKnife : MonoBehaviour
         GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found some human fingers!", 2f);
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
         GameManager.PickedUpFinger = true;
+        
+        GameManager.CheckWin();
+        
         Destroy(transform.parent.gameObject);
         
     }

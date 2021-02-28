@@ -124,6 +124,9 @@ public class Syringe : MonoBehaviour
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
                     GameManager.PickedUpBlood = true;
                     GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Human blood goes in the fridge!", 2f);
+                    
+                    GameManager.CheckWin();
+                    
                     Destroy(mask);
                     Destroy(bras);
                     Destroy(background);
