@@ -31,6 +31,7 @@ public class PlayerControls : MonoBehaviour
     private float TimeLeftFlashMonster;
     private float TimeLeftNextShadow;
     public GameObject PrefabShadowMonster;
+    private float timeLastFight;
 
 
     // Start is called before the first frame update
@@ -79,7 +80,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (reset)
         {
-            if (!CurrFlashLightMonster&&GameManager.Sanity<80)
+            if (!CurrFlashLightMonster&&GameManager.Sanity<80&&TimeLeftFlashMonster<=0)
             {
                 CurrFlashLightMonster = Instantiate(PrefabFlashLightMonster, transform.Find("SpawnFront").position,Quaternion.identity);
                 if (transform.localScale.x > 0)
@@ -91,6 +92,9 @@ public class PlayerControls : MonoBehaviour
                 }
 
                 TimeLeftFlashMonster = TimeFlashMonster;
+            }else if (TimeLeftFlashMonster > 0)
+            {
+                TimeLeftFlashMonster -= Time.deltaTime;
             }
 
             float temp=(100 - energy.value) / 100;
@@ -128,14 +132,25 @@ public class PlayerControls : MonoBehaviour
             if (energy.value <= 0)
             {
                 ToggleLampeDePoche();
-            }else if (energy.value<energyThreshHoldFlash)
+            }else if (energy.value < energyThreshHoldFlash)
             {
                 if (energy.value <= 0)
                 {
                     timeLeftFlash = 0;
                 }
+
                 Flash(true);
             }
+        }
+
+        if (GameManager.Sanity <= 0&&timeLastFight<=0)
+        {
+            Instantiate((GameObject)Resources.Load("Events/DemonFight"),new Vector3(Camera.main.transform.position.x,Camera.main.transform.position.y,0),Quaternion.identity);
+            LockMovement();
+            timeLastFight = 30;
+        }else if (timeLastFight > 0)
+        {
+            timeLastFight -= Time.deltaTime;
         }
         
 
