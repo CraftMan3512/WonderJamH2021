@@ -10,7 +10,35 @@ public class ChicklenEvent : MonoBehaviour
 
     private void Start()
     {
-        StartEvent();
+
+        if (GameManager.PickedUpChicken)
+        {
+
+            if (GameManager.PickedUpKnife)
+            {
+                
+                StartEvent();   
+                
+            }
+            else
+            {
+                
+                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I should find a tool to cut with...", 2f, false);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+                Destroy(gameObject);
+                
+            }
+
+        }
+        else
+        {
+            
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Maybe I should find something to cut before...", 2f, false);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+            Destroy(gameObject);
+            
+        }
+        
     }
 
     public void StartEvent()
@@ -56,6 +84,7 @@ public class ChicklenEvent : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
         GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(1);
         GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found a chicken's heart!", 2f);
+        GameManager.PickedUpHeart = true;
         Destroy(gameObject);
         
     }

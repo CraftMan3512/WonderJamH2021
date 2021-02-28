@@ -10,6 +10,14 @@ public class GameManager : MonoBehaviour
     public static float Difficulter=1f;
     public static int Encounters = 0;
 
+    public static bool PickedUpOuija = true,
+        PickedUpKnife = true,
+        PickedUpBlood = false,
+        PickedUpFinger = false,
+        PickedUpHeart = false,
+        PickedUpChicken = false,
+        PickedUpSeringue = false;
+
     public static void RemoveSanity(float value)
     {
         if (Sanity <= 0)
@@ -34,11 +42,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public static void CheckWin()
+    {
+
+        if (PickedUpBlood && PickedUpHeart && PickedUpFinger)
+        {
+            
+            Debug.Log("WIN!!!!!!");
+            
+        }
+        
+    }
+
     public static void ResetValues()
     {
         LampeDePoche = false;
         Sanity = 100;
         Difficulter = 1f;
+        
+        //story related bools
+        PickedUpOuija = false;
+        PickedUpKnife = false;
+        PickedUpBlood = false;
+        PickedUpFinger = false;
+        PickedUpHeart = false;
+        PickedUpChicken = false;
+        PickedUpSeringue = false;
     }
 
 }

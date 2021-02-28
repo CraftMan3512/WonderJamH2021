@@ -23,6 +23,27 @@ public class Syringe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        if (GameManager.PickedUpSeringue)
+        {
+            
+            StartEvent();
+            
+        }
+        else
+        {
+            
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("A perfect place to store blood.", 2f, false);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+            Destroy(gameObject);
+            
+        }
+        
+    }
+
+    void StartEvent()
+    {
+        
         bloodMask = transform.Find("Mask").gameObject;
         syringeBack = transform.Find("SyringeBack").gameObject;
         syringeMain = transform.Find("Syringe").gameObject;
@@ -35,6 +56,7 @@ public class Syringe : MonoBehaviour
         bras.transform.parent = null;
         background.transform.parent = null;
         shake = new Vector2(0, 0);
+        
     }
 
     // Update is called once per frame
@@ -88,6 +110,7 @@ public class Syringe : MonoBehaviour
                     //fin
                     GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(3);
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+                    GameManager.PickedUpBlood = true;
                     GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found some human blood!", 2f);
                     Destroy(mask);
                     Destroy(bras);

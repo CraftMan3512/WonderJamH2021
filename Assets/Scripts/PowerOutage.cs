@@ -8,6 +8,9 @@ public class PowerOutage : MonoBehaviour
     private float timeUntilNextPowerOutage;
     private bool outage = false;
     GameObject[] lamps;
+
+    private bool firstOutage = true;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +42,15 @@ public class PowerOutage : MonoBehaviour
     {
         
         SoundPlayer.PlaySFX(Resources.Load<AudioClip>("SFX/SFX_Power_Cut"));
-        
+
+        if (firstOutage)
+        {
+
+            firstOutage = false;
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("The power is out! I should find a breaker.", 2f);
+
+        }
+
         outage = true;
         foreach(GameObject l in lamps)
         {
@@ -47,6 +58,8 @@ public class PowerOutage : MonoBehaviour
         }
 
     }
+
+    public bool isOutage() => outage;
 
 
     public void Fix()

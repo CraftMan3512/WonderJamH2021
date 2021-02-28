@@ -19,9 +19,45 @@ public class HandKnife : MonoBehaviour
     private Vector2 fingerEventPos;
     private bool clicked = false;
 
+    private bool ended = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        
+        if (GameManager.PickedUpOuija)
+        {
+
+            if (GameManager.PickedUpKnife)
+            {
+                
+                StartEvent();
+                
+            }
+            else
+            {
+                
+                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I should find a tool to cut with...", 2f, false);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+                Destroy(transform.parent.gameObject);
+                
+            }
+
+        }
+        else
+        {
+            
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I need a cutting board...", 2f, false);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+            Destroy(transform.parent.gameObject);
+            
+        }
+        
+    }
+
+    void StartEvent()
+    {
+        
         if(shakeAmplitude == 0)
         {
             shakeAmplitude = 0.2f;
@@ -36,6 +72,7 @@ public class HandKnife : MonoBehaviour
         shake = new Vector2(0, 0);
         baseHeightOffset = -1;
         SetTarget();
+        
     }
 
     // Update is called once per frame
@@ -80,17 +117,36 @@ public class HandKnife : MonoBehaviour
             }
             else
             {
-                //Blood shit and fade;
-                SoundPlayer.PlaySFX(knifeSFX);
-                GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(4);
-                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found some human fingers!", 2f);
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
-                Destroy(transform.parent.gameObject);
+
+                if (!ended)
+                {
+
+                    ended = true;
+                    StopAllCoroutines();
+                    StartCoroutine(EndEvent());
+                    
+                }
+
             }
         }
 
 
 
+    }
+
+    IEnumerator EndEvent()
+    {
+        
+        yield return new WaitForSeconds(2f);
+        
+        //Blood shit and fade;
+        SoundPlayer.PlaySFX(knifeSFX);
+        GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(4);
+        GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found some human fingers!", 2f);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+        GameManager.PickedUpFinger = true;
+        Destroy(transform.parent.gameObject);
+        
     }
 
     
