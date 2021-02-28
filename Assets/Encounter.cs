@@ -30,7 +30,7 @@ public class Encounter : MonoBehaviour
         }
         else
         {
-            timeUntilNextEncounter -= Time.deltaTime;
+            if (!s.encounter) timeUntilNextEncounter -= Time.deltaTime;
         }
     }
 }
