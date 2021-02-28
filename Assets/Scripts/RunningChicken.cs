@@ -99,7 +99,7 @@ public class RunningChicken : MonoBehaviour
         else
         {
             
-            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I need a weapon to kill it.", 2f);
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I need a weapon to kill it.", 2f, false);
             
         }
         

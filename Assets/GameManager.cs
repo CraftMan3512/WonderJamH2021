@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
         LampeDePoche = false;
         Sanity = 100;
         Difficulter = 1f;
+        Encounters = 0;
         
         //story related bools
         PickedUpOuija = false;

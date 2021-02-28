@@ -47,7 +47,7 @@ public class PowerOutage : MonoBehaviour
         {
 
             firstOutage = false;
-            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("The power is out! I should find a breaker.", 2f);
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("The power is out! I should find a breaker.", 2f, false);
 
         }
 

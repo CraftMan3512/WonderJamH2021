@@ -26,9 +26,21 @@ public class Syringe : MonoBehaviour
 
         if (GameManager.PickedUpSeringue)
         {
-            
-            StartEvent();
-            
+            if (!GameManager.PickedUpBlood)
+            {
+                
+                StartEvent();
+                
+            }
+            else
+            {
+                
+                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I already stored some blood.", 2f, false);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+                Destroy(gameObject);
+                
+            }
+
         }
         else
         {
@@ -111,7 +123,7 @@ public class Syringe : MonoBehaviour
                     GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(3);
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
                     GameManager.PickedUpBlood = true;
-                    GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found some human blood!", 2f);
+                    GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Human blood goes in the fridge!", 2f);
                     Destroy(mask);
                     Destroy(bras);
                     Destroy(background);

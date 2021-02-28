@@ -24,35 +24,48 @@ public class HandKnife : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        if (GameManager.PickedUpOuija)
-        {
 
-            if (GameManager.PickedUpKnife)
+        if (!GameManager.PickedUpFinger)
+        {
+            
+            if (GameManager.PickedUpOuija)
             {
+
+                if (GameManager.PickedUpKnife)
+                {
                 
-                StartEvent();
+                    StartEvent();
                 
+                }
+                else
+                {
+                
+                    GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I should find a tool to cut with...", 2f, false);
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+                    Destroy(transform.parent.gameObject);
+                
+                }
+
             }
             else
             {
-                
-                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I should find a tool to cut with...", 2f, false);
+            
+                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I need a cutting board...", 2f, false);
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
                 Destroy(transform.parent.gameObject);
-                
+            
             }
-
+            
         }
         else
         {
             
-            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I need a cutting board...", 2f, false);
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I already cut my finger...", 2f, false);
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
             Destroy(transform.parent.gameObject);
             
         }
-        
+
     }
 
     void StartEvent()
@@ -109,6 +122,7 @@ public class HandKnife : MonoBehaviour
 
         if (clicked)
         {
+
             float xDistance = Mathf.Abs(transform.position.x - line.transform.position.x);
             if (xDistance > 0.05f)
             {
@@ -120,7 +134,8 @@ public class HandKnife : MonoBehaviour
 
                 if (!ended)
                 {
-
+                    
+                    SoundPlayer.PlaySFX(knifeSFX);
                     ended = true;
                     StopAllCoroutines();
                     StartCoroutine(EndEvent());
@@ -140,7 +155,6 @@ public class HandKnife : MonoBehaviour
         yield return new WaitForSeconds(2f);
         
         //Blood shit and fade;
-        SoundPlayer.PlaySFX(knifeSFX);
         GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(4);
         GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found some human fingers!", 2f);
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
