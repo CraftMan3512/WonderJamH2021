@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -7,18 +8,38 @@ using UnityEngine.Timeline;
 public class IntroCutsceneEnd : MonoBehaviour
 {
 
+    private bool pressOnce = false;
+    public TextMeshProUGUI skipTxt;
+    
     public void ChangeScene()
     {
         GameManager.ResetValues();
         GetComponent<SceneChanger>().ChangeScene();
-        Debug.Log("Change scene");
+        //Debug.Log("Change scene");
     }
-    // Start is called before the first frame update
-   
 
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+            if (pressOnce)
+            {
+
+                GameManager.ResetValues();
+                GetComponent<SceneChanger>().ChangeScene();
+
+            }
+            else
+            {
+
+                skipTxt.enabled = true;
+                pressOnce = true;
+            }
+
+        }
         
     }
 }
