@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
     public static float Difficulter=1f;
     public static int Encounters = 0;
 
-    public static bool PickedUpOuija = true,
-        PickedUpKnife = true,
+    public static bool PickedUpOuija = false,
+        PickedUpKnife = false,
         PickedUpBlood = false,
         PickedUpFinger = false,
         PickedUpHeart = false,
