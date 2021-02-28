@@ -50,7 +50,7 @@ public class PlayerControls : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         baseScale = transform.localScale;
         LampeDePocheLight2d.enabled = false;
-        energy.value = 35;
+        energy.value = 100;
         TimeLeftNextShadow = Random.Range(0, 10);
     }
     private void FixedUpdate()
@@ -283,7 +283,7 @@ public class PlayerControls : MonoBehaviour
             ToggleLampeDePoche();
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             
             lampePoche.GetComponent<Light2D>().enabled = false;
@@ -302,7 +302,7 @@ public class PlayerControls : MonoBehaviour
         yield return new WaitForSeconds(timeBeforeCrank);
         //play crank sound here
         
-        while (Input.GetKey(KeyCode.E) && energy.value < 100)
+        while (Input.GetKey(KeyCode.Space) && energy.value < 100)
         {
 
             energy.value += (100f / crankTime) * Time.deltaTime;

@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
         PickedUpFinger = false,
         PickedUpHeart = false,
         PickedUpChicken = false,
-        PickedUpSeringue = false;
+        PickedUpSeringue = false,
+        PickedUpNote = false;
 
     public static void RemoveSanity(float value)
     {
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
         PickedUpHeart = false;
         PickedUpChicken = false;
         PickedUpSeringue = false;
+        PickedUpNote = false;
     }
 
 }
