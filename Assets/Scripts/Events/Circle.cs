@@ -5,7 +5,7 @@ using UnityEngine;
 public class Circle : MonoBehaviour
 {
 
-    private float reductionSpeed = 0.5f;
+    private float reductionSpeed = 1f;
     private float startingScale;
     private float amplitude;
 
@@ -14,6 +14,7 @@ public class Circle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        reductionSpeed = reductionSpeed / GameManager.Difficulter;
         hitSounds[0] = Resources.Load<AudioClip>("SFX/SFX_Fight_noise_01");
         hitSounds[1] = Resources.Load<AudioClip>("SFX/SFX_Fight_noise_02");
         hitSounds[2] = Resources.Load<AudioClip>("SFX/SFX_Fight_noise_03");
