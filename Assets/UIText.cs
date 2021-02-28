@@ -17,10 +17,13 @@ public class UIText : MonoBehaviour
 
     }
 
-    public void DisplayText(string displayText, float nbSecs = 2f)
+    public void DisplayText(string displayText, float nbSecs = 2f, bool playSound = true)
     {
         
         StopAllCoroutines();
+        
+        if (playSound) SoundPlayer.PlaySFX(displaySFX);
+        
         StartCoroutine(TextDisplayCor(displayText, nbSecs));
 
 
@@ -30,8 +33,7 @@ public class UIText : MonoBehaviour
     {
 
         text.text = displayText;
-        SoundPlayer.PlaySFX(displaySFX);
-        
+
         //fade in
         while (text.color.a < 1)
         {

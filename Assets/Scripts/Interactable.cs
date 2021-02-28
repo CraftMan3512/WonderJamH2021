@@ -24,7 +24,7 @@ public class Interactable : MonoBehaviour
     private void Start()
     {
 
-        highlight.enabled = false;
+        if (highlight != null) highlight.enabled = false;
 
     }
 
@@ -41,7 +41,7 @@ public class Interactable : MonoBehaviour
         if (ply != null)
         {
             
-            if ( !ply.GetComponent<PlayerControls>().lockMovement && Input.GetKeyDown(KeyCode.Space))
+            if ( !ply.GetComponent<PlayerControls>().lockMovement && Input.GetKeyDown(KeyCode.E))
             {
                 
                 onInteract.Invoke(ply);
@@ -60,7 +60,7 @@ public class Interactable : MonoBehaviour
 
             ply = other.gameObject;
             indicatorEnabled = true;
-            highlight.enabled = true;
+            if (highlight != null) highlight.enabled = true;
         }
 
     }
@@ -73,7 +73,7 @@ public class Interactable : MonoBehaviour
 
             ply = null;
             indicatorEnabled = false;
-            highlight.enabled = false;
+            if (highlight != null) highlight.enabled = false;
         }
 
     }

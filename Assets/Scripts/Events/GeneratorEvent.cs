@@ -16,7 +16,21 @@ public class GeneratorEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartEvent();
+
+        if (GameObject.Find("PowerOutage").GetComponent<PowerOutage>().isOutage())
+        {
+            
+            StartEvent();   
+            
+        }
+        else
+        {
+            
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("The breaker is on.", 2f, false);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+            Destroy(gameObject);
+            
+        }
     }
 
     public void StartEvent()

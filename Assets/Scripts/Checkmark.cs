@@ -17,12 +17,16 @@ public class Checkmark : MonoBehaviour
     {
         largeurEcran = Screen.width;
         textSize = (9 * (largeurEcran / 500));
+        
+        CompletedTask(0);
     }
 
     // Update is called once per frame
     void Update()
     {
-            
+
+        GetComponent<CanvasGroup>().alpha = GameManager.PickedUpNote ? 0.6f : 0f;
+
     }
 
 
