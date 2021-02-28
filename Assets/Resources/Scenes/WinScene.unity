@@ -1814,7 +1814,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1280888617626355888}
   - component: {fileID: 1280888617626355891}
-  - component: {fileID: 1280888617626355890}
   - component: {fileID: 1280888617626355892}
   m_Layer: 8
   m_Name: Hand
@@ -1823,21 +1822,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1280888617626355890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280888617626355889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19fe4447d347f2144972404f097dd9b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxAngle: 55
-  angle: 0
-  MinAngle: -55
 --- !u!212 &1280888617626355891
 SpriteRenderer:
   m_ObjectHideFlags: 0
