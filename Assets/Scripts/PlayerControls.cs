@@ -137,7 +137,7 @@ public class PlayerControls : MonoBehaviour
 
         CheckDeath();
         
-        Interactions();
+        if (!lockMovement) Interactions();
         
         if (GameManager.LampeDePoche)
         {
@@ -155,12 +155,6 @@ public class PlayerControls : MonoBehaviour
                 Flash(true);
             }
         }
-
-        if (GameManager.Sanity <= 0)
-        {
-            //TODO death
-        }
-        
 
         if (!CurrFlashLightMonster&&GameManager.Sanity<50&& TimeLeftNextShadow<=0)
         {
