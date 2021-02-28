@@ -15,7 +15,7 @@ public class PowerOutage : MonoBehaviour
     void Start()
     {
         
-        //SetNextOutage(10);
+        SetNextOutage();
         
        lamps =  GameObject.FindGameObjectsWithTag("Light");
     }
