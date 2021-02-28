@@ -41,7 +41,9 @@ public class Syringe : MonoBehaviour
                 else
                 {
                     //fin
+                    GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(3);
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+                    GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found some human blood!", 2f);
                     Destroy(gameObject);
                 }
             }

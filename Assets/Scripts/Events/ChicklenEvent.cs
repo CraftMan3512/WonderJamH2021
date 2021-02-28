@@ -6,6 +6,7 @@ using UnityEngine;
 public class ChicklenEvent : MonoBehaviour
 {
     public GameObject chicken1, chicken2, pointille, couteau;
+    public AudioClip knifeSFX;
 
     private void Start()
     {
@@ -25,6 +26,7 @@ public class ChicklenEvent : MonoBehaviour
     public void OnTakeCouteau()
     {
         
+        SoundPlayer.PlaySFX(knifeSFX);
         pointille.SetActive(true);
         
     }
@@ -48,8 +50,10 @@ public class ChicklenEvent : MonoBehaviour
     void EndEvent()
     {
         
-        Debug.Log("EVENT DONE!!!");
+        //Debug.Log("EVENT DONE!!!");
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+        GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(1);
+        GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found a chicken's heart!", 2f);
         Destroy(gameObject);
         
     }

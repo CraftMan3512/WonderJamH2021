@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PlayerControls
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 6417bc772d123ab4f957a3265d451b0d,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: lockMovement
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: speed
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: droit
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: lampePoche
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: energy
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: energyDownRate
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: energyThreshHoldFlash
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: timeFlash
+    value: 0.15
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: crankTime
+    value: 8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: stepSound
+    value: 
+    objectReference: {fileID: 8300000, guid: 9f13fedeb2f34aa4f81cb68d89b2f018, type: 3}
+  - target: {fileID: 0}
+    propertyPath: timeBeforeCrank
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: PrefabFlashLightMonster
+    value: 
+    objectReference: {fileID: 6387443950374137629, guid: 44519d34d8f095f4fb38e2c82bd9388f,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: TimeFlashMonster
+    value: 5
+    objectReference: {fileID: 0}

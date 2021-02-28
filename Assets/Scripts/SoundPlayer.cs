@@ -4,22 +4,6 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public enum Songs
-{
-    
-    ADRENALINE,
-    GameplaySong
-    
-}
-
-public enum SoundEffects
-{
-    
-    MenuButtonPress,
-    JoinGame,
-    
-}
-
 
 public class SoundPlayer : MonoBehaviour
 {
@@ -28,9 +12,6 @@ public class SoundPlayer : MonoBehaviour
     
     private AudioSource source;
 
-    static Dictionary<Songs, AudioClip> songs;
-    static Dictionary<SoundEffects, AudioClip> effects;
-    
     [Range(0,1)]
     public float globalVolumeSet;
     float globalVolume; // global volume multiplier
@@ -43,60 +24,21 @@ public class SoundPlayer : MonoBehaviour
         if (instance is null) instance = this;
         else Destroy(gameObject);
 
-        InitializeSounds();
-
         source = GetComponent<AudioSource>();
         globalVolume = globalVolumeSet;
         
     }
 
-    public void SetMusic(Songs song, bool startPlaying = true)
+    public static void PlaySFX(AudioClip sfx, float vol = 1f)
     {
 
-        if (songs.ContainsKey(song))
-        {
-
-            if (source.isPlaying) {source.Stop();}
-            source.clip = songs[song];
-            if (startPlaying) {source.Play();}
-
-        }
-
-    }
-
-    public void PlaySFX(SoundEffects sfx, float vol = 1f)
-    {
-
-        if (effects.ContainsKey(sfx))
+        if (instance != null)
         {
             
-            source.PlayOneShot(effects[sfx],2*globalVolume*vol);   
+            if (instance.source != null) instance.source.PlayOneShot(sfx,2*instance.globalVolume*vol);   
             
         }
 
     }
 
-    void InitializeSounds()
-    {
-        
-        //put songs in this list
-        songs = new Dictionary<Songs, AudioClip>()
-        {
-            {Songs.ADRENALINE, Resources.Load<AudioClip>("Sound/Music/ADRENALINE")},
-            {Songs.GameplaySong, Resources.Load<AudioClip>("Music/Forest")},
-            //...
-        };
-
-        //put sfx in this list
-        effects = new Dictionary<SoundEffects, AudioClip>()
-        {
-
-            {SoundEffects.MenuButtonPress, Resources.Load<AudioClip>("Music/Forest")},
-            {SoundEffects.JoinGame, Resources.Load<AudioClip>("Music/Forest")},
-            //...
-
-        };
-        
-    }
-    
 }

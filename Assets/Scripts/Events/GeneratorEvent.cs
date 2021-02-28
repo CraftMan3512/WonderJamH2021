@@ -8,6 +8,7 @@ public class GeneratorEvent : MonoBehaviour
 
     public GameObject bar;
     public Transform barTop, barBottom;
+    public AudioClip leverSFX;
 
     private bool started = false;
 
@@ -52,6 +53,7 @@ public class GeneratorEvent : MonoBehaviour
         if (Math.Abs(bar.transform.position.y - barTop.position.y) < 0.05f)
         {
             
+            SoundPlayer.PlaySFX(leverSFX);
             EndEvent();
             
         }
@@ -61,7 +63,7 @@ public class GeneratorEvent : MonoBehaviour
     public void EndEvent()
     {
         
-        Debug.Log("EVENT GENERATOR DONE!!!");
+        //Debug.Log("EVENT GENERATOR DONE!!!");
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
         
         Destroy(gameObject);

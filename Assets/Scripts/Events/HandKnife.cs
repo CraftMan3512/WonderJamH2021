@@ -9,6 +9,7 @@ public class HandKnife : MonoBehaviour
     public float maxHeight;
     public float maxWidth;
     private float baseHeightOffset;
+    public AudioClip knifeSFX;
 
 
     private Vector2 target;
@@ -80,6 +81,11 @@ public class HandKnife : MonoBehaviour
             else
             {
                 //Blood shit and fade;
+                SoundPlayer.PlaySFX(knifeSFX);
+                GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(4);
+                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found some human fingers!", 2f);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+                Destroy(transform.parent.gameObject);
             }
         }
 

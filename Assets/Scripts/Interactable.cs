@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Experimental.Rendering.Universal;
 
 [System.Serializable]
 public class OnInteract : UnityEvent<GameObject>
@@ -14,10 +15,19 @@ public class Interactable : MonoBehaviour
 
     private bool indicatorEnabled = false;
     public GameObject indicator;
+    public Light2D highlight;
 
     private GameObject ply;
 
     public OnInteract onInteract;
+
+    private void Start()
+    {
+
+        highlight.enabled = false;
+
+    }
+
     private void Update()
     {
 
@@ -50,6 +60,7 @@ public class Interactable : MonoBehaviour
 
             ply = other.gameObject;
             indicatorEnabled = true;
+            highlight.enabled = true;
         }
 
     }
@@ -62,6 +73,7 @@ public class Interactable : MonoBehaviour
 
             ply = null;
             indicatorEnabled = false;
+            highlight.enabled = false;
         }
 
     }
