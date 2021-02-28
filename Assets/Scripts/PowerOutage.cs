@@ -31,6 +31,8 @@ public class PowerOutage : MonoBehaviour
             }
             else
             {
+                
+                if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().lockMovement)
                 Outage();
             }
         }

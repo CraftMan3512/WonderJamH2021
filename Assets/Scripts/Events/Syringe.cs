@@ -23,42 +23,54 @@ public class Syringe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        if (GameManager.PickedUpNote)
+        
+        if (!GameObject.Find("PowerOutage").GetComponent<PowerOutage>().isOutage())
         {
             
-            if (GameManager.PickedUpSeringue)
+            if (GameManager.PickedUpNote)
             {
-                if (!GameManager.PickedUpBlood)
+            
+                if (GameManager.PickedUpSeringue)
                 {
+                    if (!GameManager.PickedUpBlood)
+                    {
                 
-                    StartEvent();
+                        StartEvent();
                 
+                    }
+                    else
+                    {
+                
+                        GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I already stored some blood.", 2f, false);
+                        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+                        Destroy(gameObject);
+                
+                    }
+
                 }
                 else
                 {
-                
-                    GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I already stored some blood.", 2f, false);
+            
+                    GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("A perfect place to store blood.", 2f, false);
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
                     Destroy(gameObject);
-                
-                }
-
+            
+                }   
+            
             }
             else
             {
             
-                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("A perfect place to store blood.", 2f, false);
+                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I have to find how to kill that demon", 2f, false);
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
                 Destroy(gameObject);
             
             }   
             
-        }
-        else
+        } else
         {
             
-            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I have to find how to kill that demon", 2f, false);
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I can't see!", 2f, false);
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
             Destroy(gameObject);
             

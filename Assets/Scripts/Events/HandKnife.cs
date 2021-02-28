@@ -25,60 +25,72 @@ public class HandKnife : MonoBehaviour
     void Start()
     {
 
-        if (GameManager.PickedUpNote)
+        if (!GameObject.Find("PowerOutage").GetComponent<PowerOutage>().isOutage())
         {
             
-            if (!GameManager.PickedUpFinger)
+            if (GameManager.PickedUpNote)
             {
             
-                if (GameManager.PickedUpOuija)
+                if (!GameManager.PickedUpFinger)
                 {
-
-                    if (GameManager.PickedUpKnife)
+            
+                    if (GameManager.PickedUpOuija)
                     {
+
+                        if (GameManager.PickedUpKnife)
+                        {
                 
-                        StartEvent();
+                            StartEvent();
                 
+                        }
+                        else
+                        {
+                
+                            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I should find a tool to cut with...", 2f, false);
+                            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+                            Destroy(transform.parent.gameObject);
+                
+                        }
+
                     }
                     else
                     {
-                
-                        GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I should find a tool to cut with...", 2f, false);
+            
+                        GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I need a cutting board...", 2f, false);
                         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
                         Destroy(transform.parent.gameObject);
-                
+            
                     }
-
+            
                 }
                 else
                 {
             
-                    GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I need a cutting board...", 2f, false);
+                    GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I already cut my finger...", 2f, false);
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
                     Destroy(transform.parent.gameObject);
             
-                }
+                }    
             
             }
             else
             {
             
-                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I already cut my finger...", 2f, false);
+                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I have to find how to kill that demon.", 2f, false);
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
                 Destroy(transform.parent.gameObject);
             
-            }    
+            }   
             
         }
         else
         {
             
-            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I have to find how to kill that demon.", 2f, false);
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I can't see!", 2f, false);
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
             Destroy(transform.parent.gameObject);
             
         }
-        
 
     }
 
