@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class MusicBlender : MonoBehaviour
     public AudioSource source1, source2;
     public float transitionTime = 1f;
 
+    private bool hastened;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,26 +19,36 @@ public class MusicBlender : MonoBehaviour
         source2.volume = 0;
         source1.Play();
         source2.Play();
-        StartCoroutine(TestCor());
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
-    }
 
-    IEnumerator TestCor()
-    {
-        
-        //Debug.Log("TEST START");
-        yield return new WaitForSeconds(5f);
-        HastenMusic();
-        yield return new WaitForSeconds(10f);
-        RelaxMusic();
-        yield return new WaitForSeconds(5f);
-        //Debug.Log("TEST END");
+        if (GameManager.Sanity < 30f)
+        {
+
+            if (!hastened)
+            {
+                
+                HastenMusic();
+                hastened = true;
+
+            }
+            
+        }
+        else
+        {
+
+            if (hastened)
+            {
+                
+                RelaxMusic();
+                hastened = false;
+
+            }
+            
+        }
         
     }
 

@@ -8,6 +8,7 @@ public enum SceneTypes
     
     MainMenu = 0,
     GameplayScene = 1,
+    DeathScene = 2,
     
 }
 
@@ -15,7 +16,7 @@ public enum TransitionTypes
 {
     
     CrossFade,
-    CoolTransition,
+    DeathTransition,
     
 }
 
@@ -28,15 +29,25 @@ public class SceneChanger : MonoBehaviour
     public void ChangeScene()
     {
 
-        LevelLoader.instance.LoadScene(nextScene, transition);
+        if (LevelLoader.instance != null)
+        {
+            
+            LevelLoader.instance.LoadScene(nextScene, transition);   
+            
+        }
 
     }
     
     public static void ChangeScene(SceneTypes scene, TransitionTypes transitionType = TransitionTypes.CrossFade)
     {
 
-        
-        LevelLoader.instance.LoadScene(scene, transitionType);
+
+        if (LevelLoader.instance != null)
+        {
+            
+            LevelLoader.instance.LoadScene(scene, transitionType);   
+            
+        }
 
     }
 

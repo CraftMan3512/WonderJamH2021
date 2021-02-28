@@ -24,7 +24,7 @@ public class GameEvent : MonoBehaviour
         if (eventObject != null)
         {
 
-            GameObject newEvent = Instantiate(eventObject, new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y), Quaternion.identity);
+            GameObject newEvent = Instantiate(eventObject, new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y), eventObject.transform.rotation);
 
         }
         

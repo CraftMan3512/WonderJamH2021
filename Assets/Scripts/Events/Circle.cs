@@ -8,10 +8,17 @@ public class Circle : MonoBehaviour
     private float reductionSpeed = 1f;
     private float startingScale;
     private float amplitude;
+
+    private AudioClip[] hitSounds = new AudioClip[3];
+    
     // Start is called before the first frame update
     void Start()
     {
         reductionSpeed = reductionSpeed / GameManager.Difficulter;
+        hitSounds[0] = Resources.Load<AudioClip>("SFX/SFX_Fight_noise_01");
+        hitSounds[1] = Resources.Load<AudioClip>("SFX/SFX_Fight_noise_02");
+        hitSounds[2] = Resources.Load<AudioClip>("SFX/SFX_Fight_noise_03");
+        
         startingScale = transform.localScale.x;
         amplitude = startingScale * 1.2f;
     }
@@ -43,11 +50,10 @@ public class Circle : MonoBehaviour
         }
     }
 
-
-
-
     public void Clicked()
     {
+        
+        SoundPlayer.PlaySFX(hitSounds[Random.Range(0,3)], 1.5f);
         
         GameObject stampObject = Instantiate((GameObject)Resources.Load("Events/Stamp"));
         stampObject.transform.parent = transform.parent;
