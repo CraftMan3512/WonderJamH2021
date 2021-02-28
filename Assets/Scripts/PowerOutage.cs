@@ -11,6 +11,9 @@ public class PowerOutage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        SetNextOutage(10);
+        
        lamps =  GameObject.FindGameObjectsWithTag("Light");
     }
 
@@ -34,6 +37,9 @@ public class PowerOutage : MonoBehaviour
 
     public void Outage()
     {
+        
+        SoundPlayer.PlaySFX(Resources.Load<AudioClip>("SFX/SFX_Power_Cut"));
+        
         outage = true;
         foreach(GameObject l in lamps)
         {

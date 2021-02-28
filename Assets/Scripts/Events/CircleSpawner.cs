@@ -16,7 +16,7 @@ public class CircleSpawner : MonoBehaviour
     private void Start()
     {
         timeBetweenCircles -= (float)GameManager.Encounters / 10f;
-        numberOfCircles = GameManager.Encounters;
+        numberOfCircles = GameManager.Encounters + 1;
         GameManager.Encounters++;
         timeLeft = timeBetweenCircles;
         sr[0] = transform.parent.GetChild(0).GetComponent<SpriteRenderer>();
