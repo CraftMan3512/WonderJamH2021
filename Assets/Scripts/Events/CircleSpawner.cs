@@ -22,6 +22,7 @@ public class CircleSpawner : MonoBehaviour
         sr[0] = transform.parent.GetChild(0).GetComponent<SpriteRenderer>();
         sr[1] = transform.parent.GetChild(1).GetComponent<SpriteRenderer>();
         s = GameObject.FindGameObjectWithTag("Player").GetComponent<Sanity>();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().LockMovement();
         s.encounter = true;
     }
     void Update()
