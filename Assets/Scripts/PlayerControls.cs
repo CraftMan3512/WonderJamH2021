@@ -22,8 +22,9 @@ public class PlayerControls : MonoBehaviour
     private float timeLeftFlash;
     public float timeFlash=0;
     public float crankTime = 4f;
-    public AudioClip stepSound;
-    public AudioClip flashlightSFX;
+    private AudioClip stepSound;
+    private AudioClip flashlightSFX;
+    private AudioClip fastPasSFX;
     public float timeBeforeCrank=1f;
     public GameObject PrefabFlashLightMonster;
     private GameObject CurrFlashLightMonster;
@@ -37,6 +38,11 @@ public class PlayerControls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        stepSound = Resources.Load<AudioClip>("SFX/SFX_Pas_Personnage_02");
+        flashlightSFX = Resources.Load<AudioClip>("SFX/SFX_Click_Lampe_de_Poche");
+        fastPasSFX = Resources.Load<AudioClip>("SFX/SFX_fast_pas");
+        
         LampeDePocheLight2d = lampePoche.GetComponent<Light2D>();
         rb = GetComponent<Rigidbody2D>();
         baseScale = transform.localScale;
@@ -153,6 +159,9 @@ public class PlayerControls : MonoBehaviour
 
         if (!CurrFlashLightMonster&&GameManager.Sanity<50&& TimeLeftNextShadow<=0)
         {
+            
+            SoundPlayer.PlaySFX(fastPasSFX, 1.5f);
+            
             CurrFlashLightMonster = Instantiate(PrefabShadowMonster, transform.Find("SpawnBehind").position,Quaternion.identity);
             if (transform.localScale.x <= 0)
             {
