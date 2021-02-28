@@ -224,13 +224,15 @@ public class PlayerControls : MonoBehaviour
     public void LockMovement()
     {
 
+        StopAllCoroutines();
+        GetComponent<AudioSource>().Stop();
         lockMovement = true;
 
     }
 
     public void UnlockMovement()
     {
-
+        
         lockMovement = false;
         //to remove the vanishing cursor bug
         Cursor.visible = true;
