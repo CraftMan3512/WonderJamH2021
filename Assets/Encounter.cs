@@ -11,7 +11,7 @@ public class Encounter : MonoBehaviour
     void Start()
     {
         encounterEvent = (GameObject)Resources.Load("Events/DemonFight");
-        timeUntilNextEncounter = Random.Range(15f, 30f);
+        timeUntilNextEncounter = Random.Range(5f, 10f);
         s = GameObject.FindGameObjectWithTag("Player").GetComponent<Sanity>();
     }
 
@@ -21,12 +21,12 @@ public class Encounter : MonoBehaviour
         if(timeUntilNextEncounter <= 0)
         {
             //Debug.Log(":)");
-            if(!s.isInLight && !GameManager.LampeDePoche)
+            if(!s.isInLight && !GameManager.LampeDePoche && !s.encounter)
             {
                 GameObject fight = Instantiate(encounterEvent);
                 fight.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y,0);
             }   
-            timeUntilNextEncounter = Random.Range(15f, 30f);
+            timeUntilNextEncounter = Random.Range(5f, 10f);
         }
         else
         {
