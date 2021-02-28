@@ -209,6 +209,8 @@ public class PlayerControls : MonoBehaviour
     {
 
         lockMovement = false;
+        //to remove the vanishing cursor bug
+        Cursor.visible = true;
 
     }
 
