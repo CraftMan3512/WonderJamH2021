@@ -5,12 +5,13 @@ using UnityEngine;
 public class Circle : MonoBehaviour
 {
 
-    private float reductionSpeed = 0.5f;
+    private float reductionSpeed = 1f;
     private float startingScale;
     private float amplitude;
     // Start is called before the first frame update
     void Start()
     {
+        reductionSpeed = reductionSpeed / GameManager.Difficulter;
         startingScale = transform.localScale.x;
         amplitude = startingScale * 1.2f;
     }
