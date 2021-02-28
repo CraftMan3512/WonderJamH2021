@@ -261,8 +261,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "A chicken skewer recipe?? \nWas it only in my head after all ...?"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9def10370892d4b44862fa1a5520fb9c, type: 2}
-  m_sharedMaterial: {fileID: -186994649501154577, guid: 9def10370892d4b44862fa1a5520fb9c,
+  m_fontAsset: {fileID: 11400000, guid: 5b93bd5f43553a949836ec8c08ee6e86, type: 2}
+  m_sharedMaterial: {fileID: -3209345024292407815, guid: 5b93bd5f43553a949836ec8c08ee6e86,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -297,11 +297,11 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 8
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: 33.86
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
@@ -1808,8 +1808,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Let's see the next steps...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ceeb4e352ea824a4a93c73ad3afc114a, type: 2}
+  m_sharedMaterial: {fileID: -9206071606199969432, guid: ceeb4e352ea824a4a93c73ad3afc114a,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1843,9 +1844,9 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 3.8
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -37.43
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -2213,7 +2214,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -16, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1969391162
