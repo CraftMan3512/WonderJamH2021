@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
         PickedUpFinger = false,
         PickedUpHeart = false,
         PickedUpChicken = false,
-        PickedUpSeringue = false;
+        PickedUpSeringue = false,
+        PickedUpNote = false;
 
     public static void RemoveSanity(float value)
     {
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Sanity -= value;
+            Sanity -= value*Difficulter;
         }
     }
 
@@ -49,6 +50,8 @@ public class GameManager : MonoBehaviour
         {
             
             Debug.Log("WIN!!!!!!");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().LockMovement();
+            SceneChanger.ChangeScene(SceneTypes.WinScene);
             
         }
         
@@ -69,6 +72,7 @@ public class GameManager : MonoBehaviour
         PickedUpHeart = false;
         PickedUpChicken = false;
         PickedUpSeringue = false;
+        PickedUpNote = false;
     }
 
 }

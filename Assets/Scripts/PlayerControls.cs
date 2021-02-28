@@ -50,7 +50,7 @@ public class PlayerControls : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         baseScale = transform.localScale;
         LampeDePocheLight2d.enabled = false;
-        energy.value = 35;
+        energy.value = 100;
         TimeLeftNextShadow = Random.Range(0, 10);
     }
     private void FixedUpdate()
@@ -92,7 +92,7 @@ public class PlayerControls : MonoBehaviour
             if (!CurrFlashLightMonster&&GameManager.Sanity<80&&TimeLeftFlashMonster<=0)
             {
                 
-                SoundPlayer.PlaySFX(haaSFX[Random.Range(0,2)], 2f);
+                SoundPlayer.PlaySFX(haaSFX[Random.Range(0,2)], 4f);
                 CurrFlashLightMonster = Instantiate(PrefabFlashLightMonster, transform.Find("SpawnFront").position,Quaternion.identity);
                 if (transform.localScale.x > 0)
                 {
@@ -137,7 +137,7 @@ public class PlayerControls : MonoBehaviour
 
         CheckDeath();
         
-        Interactions();
+        if (!lockMovement) Interactions();
         
         if (GameManager.LampeDePoche)
         {
@@ -155,12 +155,6 @@ public class PlayerControls : MonoBehaviour
                 Flash(true);
             }
         }
-
-        if (GameManager.Sanity <= 0)
-        {
-            //TODO death
-        }
-        
 
         if (!CurrFlashLightMonster&&GameManager.Sanity<50&& TimeLeftNextShadow<=0)
         {
@@ -283,7 +277,7 @@ public class PlayerControls : MonoBehaviour
             ToggleLampeDePoche();
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             
             lampePoche.GetComponent<Light2D>().enabled = false;
@@ -302,7 +296,7 @@ public class PlayerControls : MonoBehaviour
         yield return new WaitForSeconds(timeBeforeCrank);
         //play crank sound here
         
-        while (Input.GetKey(KeyCode.E) && energy.value < 100)
+        while (Input.GetKey(KeyCode.Space) && energy.value < 100)
         {
 
             energy.value += (100f / crankTime) * Time.deltaTime;

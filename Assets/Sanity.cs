@@ -8,6 +8,7 @@ public class Sanity : MonoBehaviour
     public float sanityMinusMulti=1f;
     public float sanityAddMulti = 1f;
     public bool isInLight=false;
+    public bool encounter = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class Sanity : MonoBehaviour
         {
             GameManager.AddSanity(Time.deltaTime * sanityAddMulti* GameManager.Difficulter);
         }
-        else if (!GameManager.LampeDePoche)
+        else if (!GameManager.LampeDePoche && !encounter)
         {
             GameManager.RemoveSanity(Time.deltaTime * sanityMinusMulti);
         }

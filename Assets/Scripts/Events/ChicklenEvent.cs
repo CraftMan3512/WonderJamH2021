@@ -98,6 +98,7 @@ public class ChicklenEvent : MonoBehaviour
         GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(1);
         GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found a chicken's heart!", 2f);
         GameManager.PickedUpHeart = true;
+        GameManager.Difficulter += 0.2f;
         
         GameManager.CheckWin();
         

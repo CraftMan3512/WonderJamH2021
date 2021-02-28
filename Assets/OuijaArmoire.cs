@@ -16,8 +16,9 @@ public class OuijaArmoire : MonoBehaviour
             GameManager.PickedUpOuija = true;
             GetComponent<SpriteRenderer>().sprite = noOuijaSpr;
             GameObject.FindGameObjectWithTag("CheckMark").GetComponent<Checkmark>().CompletedTask(2);
-            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found a ouija board!", 2f);   
-            
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found a ouija board!", 2f);
+            GameManager.Difficulter += 0.1f;
+
         }
         else
         {
