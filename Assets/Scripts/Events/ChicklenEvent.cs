@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ChicklenEvent : MonoBehaviour
 {
-    public GameObject chicken1, chicken2, pointille, couteau;
+    public GameObject chicken1, chicken2, pointille, couteau, heart;
     public AudioClip knifeSFX;
 
     private void Start()
@@ -20,6 +20,7 @@ public class ChicklenEvent : MonoBehaviour
         pointille.SetActive(false);
         couteau.SetActive(true);
         chicken2.SetActive(false);
+        heart.SetActive(false);
         
     }
 
@@ -37,6 +38,7 @@ public class ChicklenEvent : MonoBehaviour
         pointille.SetActive(false);
         chicken1.SetActive(false);
         chicken2.SetActive(true);
+        heart.SetActive(true);
         
     }
 
