@@ -186,6 +186,7 @@ public class PlayerControls : MonoBehaviour
             //DEATH
             dead = true;
             LockMovement(); 
+            SoundPlayer.PlaySFX(Resources.Load<AudioClip>("SFX/SFX_Death"), 2f);
             GetComponent<SceneChanger>().ChangeScene();
             
         }
@@ -211,7 +212,7 @@ public class PlayerControls : MonoBehaviour
     public void PlayStepSound()
     {
         
-        GetComponent<AudioSource>().PlayOneShot(stepSound, 8f);
+        GetComponent<AudioSource>().PlayOneShot(stepSound, 10f);
         
     }
     

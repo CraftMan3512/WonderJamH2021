@@ -76,6 +76,7 @@ public class ChicklenEvent : MonoBehaviour
     public void OnCutChicken()
     {
         
+        SoundPlayer.PlaySFX(knifeSFX);
         pointille.SetActive(false);
         chicken1.SetActive(false);
         chicken2.SetActive(true);
