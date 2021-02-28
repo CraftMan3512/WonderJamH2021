@@ -186,6 +186,7 @@ public class PlayerControls : MonoBehaviour
             //DEATH
             dead = true;
             LockMovement(); 
+            SoundPlayer.PlaySFX(Resources.Load<AudioClip>("SFX/SFX_Death"), 2f);
             GetComponent<SceneChanger>().ChangeScene();
             
         }
