@@ -34,6 +34,10 @@ public class PlayerControls : MonoBehaviour
     private float TimeLeftNextShadow;
     public GameObject PrefabShadowMonster;
 
+    private GameObject TabText;
+    private GameObject ControlsText;
+    private bool ControlsOn;
+
     private bool dead = false;
 
     // Start is called before the first frame update
@@ -52,6 +56,11 @@ public class PlayerControls : MonoBehaviour
         LampeDePocheLight2d.enabled = false;
         energy.value = 100;
         TimeLeftNextShadow = Random.Range(0, 10);
+
+        TabText = GameObject.Find("TabText");
+        ControlsText=GameObject.Find("ControlsText");
+        ControlsText.SetActive(false);
+        ControlsOn = false;
     }
     private void FixedUpdate()
     {
@@ -132,11 +141,30 @@ public class PlayerControls : MonoBehaviour
         return false;
 
     }
+
+    private void ToggleTabControls()
+    {
+        if (ControlsOn)
+        {
+            ControlsText.SetActive(false);
+            TabText.SetActive(true);
+            ControlsOn = false;
+        }
+        else
+        {
+            ControlsText.SetActive(true);
+            TabText.SetActive(false);
+            ControlsOn = true;
+        }
+    }
     private void Update()
     {
-
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            Debug.Log("Tab");
+            ToggleTabControls();
+        }
         CheckDeath();
-        
         if (!lockMovement) Interactions();
         
         if (GameManager.LampeDePoche)
