@@ -20,7 +20,7 @@ public class Sanity : MonoBehaviour
     {
         if (isInLight)
         {
-            GameManager.AddSanity(Time.deltaTime * sanityAddMulti);
+            GameManager.AddSanity(Time.deltaTime * sanityAddMulti* GameManager.Difficulter);
         }
         else if (!GameManager.LampeDePoche)
         {
