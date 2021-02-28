@@ -25,7 +25,7 @@ public class Circle : MonoBehaviour
         else
         {
             //Fail de ce qte là
-            
+            GameManager.Difficulter += 0.05f;
            Destroy(gameObject);
         }
 

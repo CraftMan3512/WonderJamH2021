@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public static bool LampeDePoche;
     public static float Sanity=100;
+    public static float Difficulter=1f;
 
     public static void RemoveSanity(float value)
     {
