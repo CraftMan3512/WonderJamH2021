@@ -212,7 +212,7 @@ public class PlayerControls : MonoBehaviour
     public void PlayStepSound()
     {
         
-        GetComponent<AudioSource>().PlayOneShot(stepSound, 8f);
+        GetComponent<AudioSource>().PlayOneShot(stepSound, 10f);
         
     }
     
