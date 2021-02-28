@@ -9,6 +9,8 @@ public enum SceneTypes
     MainMenu = 0,
     GameplayScene = 1,
     DeathScene = 2,
+    IntroScene = 3,
+    WinScene = 4,
     
 }
 

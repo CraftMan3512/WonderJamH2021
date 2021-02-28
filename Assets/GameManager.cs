@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
         {
             
             Debug.Log("WIN!!!!!!");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().LockMovement();
+            SceneChanger.ChangeScene(SceneTypes.WinScene);
             
         }
         
