@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static bool LampeDePoche;
     public static float Sanity=100;
     public static float Difficulter=1f;
+    public static int Encounters = 0;
 
     public static void RemoveSanity(float value)
     {
@@ -31,6 +32,13 @@ public class GameManager : MonoBehaviour
         {
             Sanity += value;
         }
+    }
+
+    public static void ResetValues()
+    {
+        LampeDePoche = false;
+        Sanity = 100;
+        Difficulter = 1f;
     }
 
 }

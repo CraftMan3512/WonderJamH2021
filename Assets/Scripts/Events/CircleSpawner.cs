@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CircleSpawner : MonoBehaviour
 {
-    private float timeBetweenCircles = 0.5f;
+    private float timeBetweenCircles = 1.5f;
     private float timeLeft;
     private float numberOfCircles = 5;
     private float halfMaxHeight = 1f;
@@ -15,6 +15,9 @@ public class CircleSpawner : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
+        timeBetweenCircles -= (float)GameManager.Encounters / 10f;
+        numberOfCircles = GameManager.Encounters + 1;
+        GameManager.Encounters++;
         timeLeft = timeBetweenCircles;
         sr[0] = transform.parent.GetChild(0).GetComponent<SpriteRenderer>();
         sr[1] = transform.parent.GetChild(1).GetComponent<SpriteRenderer>();

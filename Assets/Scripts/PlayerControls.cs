@@ -22,8 +22,10 @@ public class PlayerControls : MonoBehaviour
     private float timeLeftFlash;
     public float timeFlash=0;
     public float crankTime = 4f;
-    public AudioClip stepSound;
-    public AudioClip flashlightSFX;
+    private AudioClip stepSound;
+    private AudioClip flashlightSFX;
+    private AudioClip fastPasSFX;
+    private AudioClip[] haaSFX = new AudioClip[2];
     public float timeBeforeCrank=1f;
     public GameObject PrefabFlashLightMonster;
     private GameObject CurrFlashLightMonster;
@@ -37,6 +39,13 @@ public class PlayerControls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        stepSound = Resources.Load<AudioClip>("SFX/SFX_Pas_Personnage_01");
+        flashlightSFX = Resources.Load<AudioClip>("SFX/SFX_Click_Lampe_de_Poche");
+        fastPasSFX = Resources.Load<AudioClip>("SFX/SFX_fast_pas");
+        haaSFX[0] = Resources.Load<AudioClip>("SFX/sfx_haa_01");
+        haaSFX[1] = Resources.Load<AudioClip>("SFX/sfx_haa_02");
+        
         LampeDePocheLight2d = lampePoche.GetComponent<Light2D>();
         rb = GetComponent<Rigidbody2D>();
         baseScale = transform.localScale;
@@ -52,7 +61,7 @@ public class PlayerControls : MonoBehaviour
    
     private void ToggleLampeDePoche()
     {
-        SoundPlayer.PlaySFX(flashlightSFX, 0.5f);
+        SoundPlayer.PlaySFX(flashlightSFX, 0.25f);
         timeLeftFlash = 0;
         if (GameManager.LampeDePoche) 
         {
@@ -82,6 +91,8 @@ public class PlayerControls : MonoBehaviour
         {
             if (!CurrFlashLightMonster&&GameManager.Sanity<80&&TimeLeftFlashMonster<=0)
             {
+                
+                SoundPlayer.PlaySFX(haaSFX[Random.Range(0,2)], 2f);
                 CurrFlashLightMonster = Instantiate(PrefabFlashLightMonster, transform.Find("SpawnFront").position,Quaternion.identity);
                 if (transform.localScale.x > 0)
                 {
@@ -153,6 +164,9 @@ public class PlayerControls : MonoBehaviour
 
         if (!CurrFlashLightMonster&&GameManager.Sanity<50&& TimeLeftNextShadow<=0)
         {
+            
+            SoundPlayer.PlaySFX(fastPasSFX, 1.5f);
+            
             CurrFlashLightMonster = Instantiate(PrefabShadowMonster, transform.Find("SpawnBehind").position,Quaternion.identity);
             if (transform.localScale.x <= 0)
             {
@@ -201,7 +215,7 @@ public class PlayerControls : MonoBehaviour
     public void PlayStepSound()
     {
         
-        GetComponent<AudioSource>().PlayOneShot(stepSound);
+        GetComponent<AudioSource>().PlayOneShot(stepSound, 3f);
         
     }
     
