@@ -16,6 +16,7 @@ public class ArmoireCouteau : MonoBehaviour
             GameManager.PickedUpKnife = true;
             GetComponent<SpriteRenderer>().sprite = noCouteauSpr;
             GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found a sharp knife!", 2f);   
+            GameManager.Difficulter += 0.1f;
             
         }
         else

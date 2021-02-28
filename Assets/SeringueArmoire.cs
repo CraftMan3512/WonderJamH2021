@@ -15,6 +15,7 @@ public class SeringueArmoire : MonoBehaviour
             GameManager.PickedUpSeringue = true;
             GetComponent<SpriteRenderer>().sprite = noSeringueSpr;
             GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Found an empty syringe!", 2f);   
+            GameManager.Difficulter += 0.1f;
             
         }
         else
