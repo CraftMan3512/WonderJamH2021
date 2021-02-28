@@ -20,7 +20,7 @@ public class Encounter : MonoBehaviour
     {
         if(timeUntilNextEncounter <= 0)
         {
-            Debug.Log(":)");
+            //Debug.Log(":)");
             if(!s.isInLight && !GameManager.LampeDePoche)
             {
                 GameObject fight = Instantiate(encounterEvent);
