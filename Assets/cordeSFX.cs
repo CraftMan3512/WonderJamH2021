@@ -11,5 +11,10 @@ public class cordeSFX : MonoBehaviour
         GetComponent<AudioSource>().Play();
         
     }
-    
+
+    private void Start()
+    {
+        Cursor.visible = true;
+    }
+
 }

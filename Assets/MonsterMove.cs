@@ -5,6 +5,7 @@ using UnityEngine;
 public class MonsterMove : MonoBehaviour
 {
     public GameObject player;
+    public Sprite chick;
 
     public float speed=1f;
 
@@ -12,6 +13,10 @@ public class MonsterMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (GameManager.Sanity < 50)
+        {
+            GetComponent<SpriteRenderer>().sprite = chick;
+        }
         if (!player)
         {
             player=GameObject.Find("Player");

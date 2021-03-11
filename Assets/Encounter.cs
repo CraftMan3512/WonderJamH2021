@@ -7,6 +7,7 @@ public class Encounter : MonoBehaviour
     private float timeUntilNextEncounter = 0;
     GameObject encounterEvent;
     Sanity s;
+    float rPressedTime = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,26 @@ public class Encounter : MonoBehaviour
         else
         {
             if (!s.encounter) timeUntilNextEncounter -= Time.deltaTime;
+        }
+        SecretTommyReset();
+    }
+
+
+    void SecretTommyReset()
+    {
+        if (Input.GetKey(KeyCode.R))
+        {
+            Debug.Log("R");
+            rPressedTime += Time.deltaTime;
+            if(rPressedTime >= 1)
+            {
+                GameManager.Sanity = -10;
+            }
+        }
+        else
+        {
+            Debug.Log("NOT R");
+            rPressedTime = 0;
         }
     }
 }
