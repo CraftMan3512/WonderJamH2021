@@ -11,32 +11,58 @@ public class ChicklenEvent : MonoBehaviour
     private void Start()
     {
 
-        if (!GameManager.PickedUpHeart)
+        if (!GameObject.Find("PowerOutage").GetComponent<PowerOutage>().isOutage())
         {
             
-            if (GameManager.PickedUpChicken)
+            if (GameManager.PickedUpNote)
             {
-
-                if (GameManager.PickedUpKnife)
+            
+                if (!GameManager.PickedUpHeart)
                 {
+            
+                    if (GameManager.PickedUpChicken)
+                    {
+
+                        if (GameManager.PickedUpKnife)
+                        {
                 
-                    StartEvent();   
+                            StartEvent();   
                 
+                        }
+                        else
+                        {
+                
+                            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I should find a tool to cut with...", 2f, false);
+                            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+                            Destroy(gameObject);
+                
+                        }
+
+                    }
+                    else
+                    {
+            
+                        GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Maybe I should find something to cut before...", 2f, false);
+                        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
+                        Destroy(gameObject);
+            
+                    }   
+            
                 }
                 else
                 {
-                
-                    GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I should find a tool to cut with...", 2f, false);
+            
+                    GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I already have his heart.", 2f, false);
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
                     Destroy(gameObject);
-                
-                }
-
+            
+                }   
+            
             }
             else
             {
             
-                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("Maybe I should find something to cut before...", 2f, false);
+                GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I have to find how to kill that demon", 2f, false);
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
                 Destroy(gameObject);
             
@@ -46,7 +72,7 @@ public class ChicklenEvent : MonoBehaviour
         else
         {
             
-            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I already have his heart.", 2f, false);
+            GameObject.Find("UI Text").GetComponent<UIText>().DisplayText("I can't see!", 2f, false);
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().UnlockMovement();
             Destroy(gameObject);
             
@@ -62,6 +88,10 @@ public class ChicklenEvent : MonoBehaviour
         couteau.SetActive(true);
         chicken2.SetActive(false);
         heart.SetActive(false);
+        
+        couteau.GetComponent<FollowMouse>().Follow();
+        OnTakeCouteau();
+        
         
     }
 

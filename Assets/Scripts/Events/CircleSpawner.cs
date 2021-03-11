@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CircleSpawner : MonoBehaviour
 {
-    private float timeBetweenCircles = 1.5f;
+    private float timeBetweenCircles = 0.75f;
     private float timeLeft;
     private float numberOfCircles = 5;
     private float halfMaxHeight = 1f;

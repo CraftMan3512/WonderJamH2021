@@ -87,6 +87,8 @@ public class RunningChicken : MonoBehaviour
 
     public void PickupChicken()
     {
+        
+        SoundPlayer.PlaySFX(Resources.Load<AudioClip>("SFX/SFX_Poulet"), 0.8f);
 
         if (GameManager.PickedUpKnife)
         {

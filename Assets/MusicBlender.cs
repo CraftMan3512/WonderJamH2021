@@ -63,11 +63,10 @@ public class MusicBlender : MonoBehaviour
     IEnumerator HastenMusicCoroutine()
     {
 
-        while (source1.volume > 0 && source2.volume < 1)
+        while (source2.volume < 1)
         {
 
             float delta = transitionTime * Time.deltaTime;
-            source1.volume = Mathf.Max(0, source1.volume - delta);
             source2.volume = Mathf.Min(1, source2.volume + delta);
             yield return null; // wait for next frame
             
@@ -86,12 +85,11 @@ public class MusicBlender : MonoBehaviour
     IEnumerator RelaxMusicCoroutine()
     {
         
-        while (source2.volume > 0 && source1.volume < 1)
+        while (source2.volume > 0)
         {
 
             float delta = transitionTime * Time.deltaTime;
             source2.volume = Mathf.Max(0, source2.volume - delta);
-            source1.volume = Mathf.Min(1, source1.volume + delta);
             yield return null; // wait for next frame
             
         }
